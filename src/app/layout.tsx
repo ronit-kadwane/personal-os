@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 /* ====================================================
-   SEO Metadata
+   SEO Metadata (Optimized for High-Payscale US & EU Enterprise)
    ==================================================== */
 export const metadata: Metadata = {
   title: {
@@ -31,14 +31,18 @@ export const metadata: Metadata = {
   },
   description: personalInfo.bio,
   keywords: [
-    'Full-Stack Engineer',
-    'AI Integration',
-    'Next.js',
-    'React',
-    'TypeScript',
-    'Freelance Software Engineer',
-    'Portfolio',
     personalInfo.name,
+    'Associate Staff Engineer',
+    'Principal Full-Stack Architect',
+    'Senior Software Architect',
+    'React Native Principal Engineer',
+    'Next.js Architecture Expert',
+    'Node.js Distributed Systems Lead',
+    'US & European Remote Engineering Specialist',
+    'Mobile & Web Production Architect',
+    'Enterprise Cloud & Offline Sync Systems',
+    'MongoDB Scalability Expert',
+    'Technical Leadership & Mentorship',
   ],
   authors: [{ name: personalInfo.name, url: personalInfo.website }],
   creator: personalInfo.name,
@@ -49,44 +53,99 @@ export const metadata: Metadata = {
     title: `${personalInfo.name} — ${personalInfo.title}`,
     description: personalInfo.bio,
     siteName: personalInfo.name,
+    images: [
+      {
+        url: '/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: `${personalInfo.name} - Associate Staff Engineer & Full-Stack Architect`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${personalInfo.name} — ${personalInfo.title}`,
     description: personalInfo.bio,
-    creator: '@ronitkadwane',
+    images: ['/logo.svg'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/logo.svg',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-snippet': -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
   },
   metadataBase: new URL(personalInfo.website),
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
+    { media: '(prefers-color-scheme: light)', color: '#09090b' },
     { media: '(prefers-color-scheme: dark)', color: '#09090b' },
   ],
   width: 'device-width',
   initialScale: 1,
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: personalInfo.name,
+  jobTitle: personalInfo.title,
+  url: personalInfo.website,
+  sameAs: [
+    personalInfo.socials.github,
+    personalInfo.socials.linkedin,
+    personalInfo.socials.stackoverflow,
+  ],
+  description: personalInfo.bio,
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Sarvajanik College of Engineering & Technology',
+  },
+  knowsAbout: [
+    'System Architecture',
+    'React',
+    'React-Native',
+    'Next.js',
+    'Node.js',
+    'MongoDB',
+    'AWS Lambda',
+    'Chromecast SDK',
+    'Mobile Application Development',
+    'Offline Sync Architectures',
+    'Enterprise Production Systems',
+  ],
+};
+
 /* ====================================================
    Root Layout
    ==================================================== */
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={`${inter.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

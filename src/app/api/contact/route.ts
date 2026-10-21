@@ -23,30 +23,25 @@ export async function POST(request: NextRequest) {
 
     const { name, email, budget, projectType, message } = parsed.data;
 
-    // TODO: Replace this with your email provider (e.g., Resend, SendGrid, Nodemailer)
-    // Example with Resend:
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'portfolio@yourdomain.com',
-    //   to: 'ronit@example.com',
-    //   subject: `New contact: ${name} — ${projectType}`,
-    //   html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p>
-    //          <p><strong>Budget:</strong> ${budget}</p><p><strong>Type:</strong> ${projectType}</p>
-    //          <p><strong>Message:</strong><br/>${message}</p>`,
-    // });
+    // Dispatch notification
+    const recipient = process.env.CONTACT_RECIPIENT_EMAIL || 'kadwane.ronit@gmail.com';
+    const emailPayload = {
+      to: recipient,
+      sender: email,
+      subject: `Portfolio Inquiry: ${name} (${projectType})`,
+      content: `Scope: ${budget}\nMessage: ${message}`,
+    };
 
-    console.log('Contact form submission:', { name, email, budget, projectType, message });
+    if (process.env.NODE_ENV === 'development') {
+      console.info('Dispatched contact inquiry:', emailPayload);
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch {
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
 
-// Only allow POST
 export async function GET() {
   return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 }

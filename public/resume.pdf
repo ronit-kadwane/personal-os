@@ -1,0 +1,201 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 7 0 R >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 8 0 R >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Length 2825 >>
+stream
+BT
+/F2 20 Tf
+40 750 Td
+(RONIT KADWANE) Tj
+/F1 10 Tf
+0 -16 Td
+(Associate Staff Engineer & Full-Stack Architect | Surat, India \(Open to US/EU Remote\)) Tj
+/F1 9 Tf
+0 -14 Td
+(Email: kadwane.ronit@gmail.com   GitHub: github.com/ronit-kadwane   LinkedIn: linkedin.com/in/ronit-kadwane-981017b8) Tj
+ET
+0.7 0.7 0.7 RG
+1 w
+40 705 m 572 705 l S
+BT
+/F2 11 Tf
+40 688 Td
+(PROFESSIONAL SUMMARY) Tj
+/F1 9 Tf
+0 -14 Td
+(Seasoned software professional with over 10 years of consolidated expertise designing and architecting applications,) Tj
+0 -12 Td
+(and orchestrating end-to-end production systems. Specialized in mobile and web development across React, React-Native,) Tj
+0 -12 Td
+(Node.js, and cloud platforms. Adept at crafting scalable, resilient architectures for global startups and enterprises.) Tj
+0 -20 Td
+/F2 11 Tf
+(TECHNICAL ARSENAL) Tj
+/F1 9 Tf
+0 -14 Td
+(Languages & Frameworks: JavaScript \(ES6+\), ReactJS, NextJS, React-Native, NodeJS, Android Native, HTML5, CSS3) Tj
+0 -13 Td
+(Backend & Cloud: ExpressJS, FeathersJS, LoopBack, AWS Lambda, Google Cloud Functions, Firebase, MongoDB) Tj
+0 -13 Td
+(Architecture & Engineering: System Architecture, Database Schema Design, Offline-First Sync, REST APIs, Scalability) Tj
+0 -13 Td
+(Tooling & Leadership: Technical Leadership, Team Mentorship, Agile/Jira, Git, Chromecast SDK, Node-RED) Tj
+0 -22 Td
+/F2 11 Tf
+(PROFESSIONAL EXPERIENCE) Tj
+0 -16 Td
+/F2 10 Tf
+(Nagarro Software Pvt. Ltd. \(Surat, India\) - Associate Staff Engineer) Tj
+/F1 8.5 Tf
+400 0 Td
+(Sep 2021 - Present) Tj
+-400 0 Td
+/F1 9 Tf
+0 -13 Td
+(- Transitioned from Senior Engineer to Associate Staff Engineer in Feb 2023, leading financial module architecture.) Tj
+0 -12 Td
+(- Architected client profile evaluation engine utilizing React-Native, React, Node.js, and MongoDB for financial insights.) Tj
+0 -12 Td
+(- Spearheaded technical decision-making, code reviews, and enterprise resilience across cross-functional engineering teams.) Tj
+0 -18 Td
+/F2 10 Tf
+(Maven Agency Pvt. Ltd. \(Surat, India\) - FullStack Developer) Tj
+/F1 8.5 Tf
+400 0 Td
+(Dec 2020 - Sep 2021) Tj
+-400 0 Td
+/F1 9 Tf
+0 -13 Td
+(- Handled South Africa based enterprise client delivering conversational AI chatbots and user behavior telemetry.) Tj
+0 -12 Td
+(- Led migration of client's legacy systems into modern JavaScript frameworks, optimizing performance and delivery cycles.) Tj
+0 -18 Td
+/F2 10 Tf
+(Refrens Internet Pvt. Ltd. \(Surat, India\) - Product Engineer) Tj
+/F1 8.5 Tf
+400 0 Td
+(Mar 2020 - Nov 2020) Tj
+-400 0 Td
+/F1 9 Tf
+0 -13 Td
+(- Owned and scaled core workflow engine for B2B platform managing invoices, expenditures, and quotation lifecycle.) Tj
+0 -12 Td
+(- Streamlined financial document generation speed and state synchronization for thousands of business users.) Tj
+0 -30 Td
+/F1 8 Tf
+(Page 1 of 2  -  Ronit Kadwane Resume) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Length 2520 >>
+stream
+BT
+/F2 14 Tf
+40 750 Td
+(RONIT KADWANE - RESUME \(Continued\)) Tj
+ET
+0.7 0.7 0.7 RG
+1 w
+40 738 m 572 738 l S
+BT
+/F2 10 Tf
+40 715 Td
+(Logicwind \(Surat, India\) - FullStack Developer) Tj
+/F1 8.5 Tf
+400 0 Td
+(Jan 2016 - Feb 2020) Tj
+-400 0 Td
+/F1 9 Tf
+0 -14 Td
+(- DigiQC: Built digital quality check mobile app, CMS, and server with location-radius geo-lock and full offline sync.) Tj
+0 -12 Td
+(- Chromecast Games: Built arcade game controllers \(sender/receiver\) streaming real-time events to Chromecast devices.) Tj
+0 -12 Td
+(- Video Streaming: Built apps for Joyce Meyer Ministries & PragerU with Brightcove/JWPlayer and offline caching.) Tj
+0 -12 Td
+(- Los Alisos: Resident portal for unit booking, automated billing, and work orders using LoopBack, Node-RED, MongoDB.) Tj
+0 -12 Td
+(- Contactbook: Engineered Gmail contact sharing and co-editing platform for Google Workspace teams.) Tj
+0 -12 Td
+(- Native Bridges: Built custom native Android plugins for React-Native, Ionic, and Cordova; built AWS Lambda microservices.) Tj
+0 -18 Td
+/F2 10 Tf
+(Narola Infotech \(P\) LTD \(Surat, India\) - Software Engineer) Tj
+/F1 8.5 Tf
+400 0 Td
+(Jun 2015 - Sep 2015) Tj
+-400 0 Td
+/F1 9 Tf
+0 -13 Td
+(- Developed cost calculation calculator mobile application for embroidery machines using native Android.) Tj
+0 -12 Td
+(- Engineered UI modules and payment integration for native Android e-commerce application.) Tj
+0 -22 Td
+/F2 11 Tf
+(FEATURED PRODUCTION HIGHLIGHTS) Tj
+/F1 9 Tf
+0 -14 Td
+(- DigiQC \(React-Native, FeathersJS, Node.js, MongoDB\): Enterprise quality checks for architects with location radius lock.) Tj
+0 -12 Td
+(- Chromecast Platform \(React-Native, Chromecast SDK\): Real-time interactive controllers with dynamic layout rendering.) Tj
+0 -12 Td
+(- Financial Evaluation Module \(React, React-Native, Node.js, MongoDB\): Scalable financial insights engine at Nagarro.) Tj
+0 -12 Td
+(- Contactbook \(React, MobX, FeathersJS, MongoDB\): Automated collaborative contact directory for G Suite teams.) Tj
+0 -22 Td
+/F2 11 Tf
+(EDUCATION) Tj
+0 -14 Td
+/F2 10 Tf
+(Sarvajanik College of Engineering & Technology \(Surat, India\)) Tj
+/F1 8.5 Tf
+400 0 Td
+(Jul 2011 - May 2015) Tj
+-400 0 Td
+/F1 9 Tf
+0 -13 Td
+(Bachelor of Engineering \(B.E.\) in Computer Engineering  |  CGPA: 7.16 / 10.0) Tj
+0 -12 Td
+(Core Courses: Data Structures, Algorithms, Distributed Systems, Database Management Systems, Software Engineering) Tj
+0 -40 Td
+/F1 8 Tf
+(Page 2 of 2  -  Ronit Kadwane Resume  |  Verified Portfolio: github.com/ronit-kadwane) Tj
+ET
+
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000393 00000 n 
+0000000463 00000 n 
+0000000538 00000 n 
+0000003415 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+5987
+%%EOF

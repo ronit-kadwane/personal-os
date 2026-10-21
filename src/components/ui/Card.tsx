@@ -18,14 +18,13 @@ export function Card({
   const base = 'rounded-2xl overflow-hidden';
 
   const variants = {
-    default: 'bg-zinc-900 border border-zinc-800/60',
-    glass:
-      'bg-white/5 dark:bg-white/5 backdrop-blur-md border border-white/10',
-    bordered: 'border border-zinc-700/60 bg-zinc-900/50',
+    default: 'bg-card text-card-foreground border border-border shadow-sm',
+    glass: 'bg-surface/70 backdrop-blur-md border border-border',
+    bordered: 'border border-border bg-surface text-foreground',
   };
 
   const hoverStyles = hover
-    ? 'transition-all duration-300 hover:border-indigo-500/40 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-0.5'
+    ? 'transition-all duration-300 hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-0.5'
     : '';
 
   return (

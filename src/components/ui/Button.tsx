@@ -6,7 +6,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   children: ReactNode;
   className?: string;
-  asChild?: boolean;
 }
 
 export function Button({
@@ -17,17 +16,16 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:opacity-50 disabled:pointer-events-none select-none';
+    'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer';
 
   const variants = {
     primary:
-      'bg-indigo-600 text-white hover:bg-indigo-500 active:bg-indigo-700 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-500/40',
+      'bg-indigo-600 text-white hover:bg-indigo-500 active:bg-indigo-700 shadow-md shadow-indigo-600/20 hover:shadow-indigo-500/30',
     secondary:
-      'bg-zinc-800 text-zinc-100 hover:bg-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-zinc-700',
-    ghost:
-      'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60',
+      'bg-surface-elevated text-foreground hover:bg-surface-hover border border-border hover:border-border-hover shadow-sm',
+    ghost: 'text-muted-foreground hover:text-foreground hover:bg-surface-hover',
     outline:
-      'border border-indigo-500/50 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400',
+      'border border-indigo-500/50 text-indigo-500 hover:bg-indigo-500/10 hover:border-indigo-400',
   };
 
   const sizes = {
@@ -37,10 +35,7 @@ export function Button({
   };
 
   return (
-    <button
-      className={cn(base, variants[variant], sizes[size], className)}
-      {...props}
-    >
+    <button className={cn(base, variants[variant], sizes[size], className)} {...props}>
       {children}
     </button>
   );

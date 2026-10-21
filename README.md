@@ -1,176 +1,124 @@
-# 🚀 Personal OS — Digital Portfolio
+<div align="center">
+  <img src="./public/logo.svg" width="80" height="80" alt="Ronit Kadwane Logo" />
+  <h1>Ronit Kadwane — Personal OS</h1>
+  <p>Production-Grade Digital Portfolio &amp; Interactive Resume Platform</p>
 
-> A world-class, production-ready personal portfolio and interactive resume web application.
-
-[![Next.js](https://img.shields.io/badge/Next.js-16.4-black?logo=nextdotjs)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-latest-pink)](https://framer.com/motion)
-[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
-
----
-
-## ✨ Features
-
-| Section | What's included |
-|---|---|
-| **Hero** | Dynamic role ticker, availability badge, dual CTA, social links, key metrics |
-| **Projects** | Bento grid with gradient cards, GitHub stars, impact metrics, tech stack pills |
-| **Experience** | Filterable timeline with expandable accordions, type badges, resume download |
-| **Skills** | Categorized matrix with animated proficiency bars and extra tech cloud |
-| **Testimonials** | Dual infinite-scroll marquee with star ratings and gradient avatars |
-| **Blog** | Featured + regular posts grid with reading time, tags, and Substack link |
-| **Contact** | Zod-validated form with budget selector, project type picker, Calendly CTA |
-
-### 🎨 Design
-- **Dark mode default** with smooth light/light mode toggle
-- **Indigo/Violet** primary accent + **Cyan** secondary accent
-- Glassmorphic floating navbar with scroll-aware behavior
-- Background glows, dot-grid overlays, gradient text
-- Micro-animations and scroll-reveal via **Framer Motion**
-- WCAG AA accessible (ARIA labels, focus rings, high contrast)
+  <div>
+    <img src="https://img.shields.io/badge/Architecture-Next.js_16-18181b" alt="Next.js" />
+    <img src="https://img.shields.io/badge/Language-TypeScript_5-3178c6" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Styling-Tailwind_CSS_v4-38bdf8" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Animation-Framer_Motion-ec4899" alt="Framer Motion" />
+    <img src="https://img.shields.io/badge/License-MIT-10b981" alt="MIT License" />
+  </div>
+</div>
 
 ---
 
-## 🛠️ Tech Stack
+## ⚡ Overview
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS v4 |
-| Animations | Framer Motion |
-| Icons | Lucide React |
-| Forms | React Hook Form + Zod |
-| Theme | next-themes |
-| Utilities | clsx + tailwind-merge |
+**Personal OS** is an interactive, high-performance portfolio engineered for **Ronit Kadwane** (Associate Staff Engineer & Principal Full-Stack Architect). Designed to showcase production-scale engineering capabilities to global tech leaders, US/European clients, and tier-one recruiters.
+
+### Key Capabilities
+
+- **Hero & Typewriter**: Real-time role ticker, live availability badge, direct ATS resume download, and quick contact triggers.
+- **Production Projects Catalog**: Real-world systems including **DigiQC** (geo-fenced inspection system), **Chromecast Arcade Game Controllers**, **Enterprise Video Streaming Apps**, and **Financial Profile Evaluation Module**.
+- **Interactive & Printable Resume**: Built-in `/resume` route formatted for on-screen review and `@media print` PDF generation, complemented by pre-compiled `public/resume.pdf`.
+- **Verified Experience Timeline**: Filterable trajectory detailing roles at Nagarro, Maven Agency, Refrens, Logicwind, and Narola Infotech.
+- **Categorized Technical Arsenal**: Proficiency metrics across frontend, backend microservices, distributed cloud architectures, and offline-sync systems.
+- **Enterprise SEO & JSON-LD**: Rich structured data (`schema.org/Person`), native XML sitemap (`/sitemap.xml`), robots policy (`/robots.txt`), and web app manifest (`/manifest.webmanifest`).
+- **Public-Safe Architecture**: Fully sanitized for open-source publication — zero hardcoded residential street addresses, zero leaked API secrets, and isolated environment variables.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Tech Stack & Tooling
+
+| Component              | Choice                                             | Rationale                                                        |
+| ---------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| **Framework**          | Next.js 16 (App Router, Turbopack, React 19)       | Sub-second builds, static rendering, and streaming               |
+| **Styling**            | Tailwind CSS v4 + PostCSS (`@tailwindcss/postcss`) | Next-gen CSS engine, `@theme inline`, and `@custom-variant dark` |
+| **Motion**             | Framer Motion                                      | Smooth, GPU-accelerated micro-interactions                       |
+| **Forms & Validation** | React Hook Form + Zod                              | Type-safe form validation and state management                   |
+| **Theming**            | `next-themes`                                      | Seamless dark-mode default with class-based toggling             |
+| **Icons & Branding**   | Custom SVG Monogram (`Logo.tsx`) + Lucide React    | Copyright-free, crisp vector visuals                             |
+
+---
+
+## 📁 Repository Structure
 
 ```
-src/
-├── app/
-│   ├── api/contact/route.ts   # Contact form API with Zod validation
-│   ├── globals.css            # Design tokens, CSS custom properties
-│   ├── layout.tsx             # Root layout with fonts, metadata, SEO
-│   └── page.tsx               # Main page assembling all sections
-├── components/
-│   ├── providers/
-│   │   └── ThemeProvider.tsx  # next-themes wrapper
-│   ├── sections/
-│   │   ├── Navbar.tsx         # Glassmorphic floating navbar
-│   │   ├── Hero.tsx           # Hero with role ticker
-│   │   ├── Projects.tsx       # Bento grid projects
-│   │   ├── Experience.tsx     # Filterable timeline
-│   │   ├── Skills.tsx         # Skills matrix
-│   │   ├── Testimonials.tsx   # Infinite marquee
-│   │   ├── Blog.tsx           # Blog posts grid
-│   │   ├── Contact.tsx        # Contact form
-│   │   └── Footer.tsx         # Footer
-│   └── ui/
-│       ├── Button.tsx         # Button primitive
-│       ├── Badge.tsx          # Badge primitive
-│       └── Card.tsx           # Card primitive
-├── data/
-│   └── portfolio.ts           # ALL content — edit this file!
-└── lib/
-    └── utils.ts               # cn(), formatDate(), truncate()
+personal-os/
+├── .agents/                    # Agent rules, workflows & maintenance skills
+│   ├── rules/                  # Project standards and strict data integrity rules
+│   └── skills/                 # Portfolio manager skill cheatsheet
+├── docs/                       # High-density technical documentation
+│   ├── ARCHITECTURE.md         # Component tree, data flow & security headers
+│   ├── DATA_SCHEMA.md          # TypeScript schemas for all portfolio datasets
+│   ├── STYLING_GUIDE.md        # Tailwind v4, PostCSS, and animation guide
+│   └── DEPLOYMENT.md           # Production builds & cloud deployment
+├── public/                     # Static assets (logo.svg, favicon.svg, resume.pdf)
+├── scripts/                    # Automation utilities (generate_resume.py)
+├── src/
+│   ├── app/                    # Next.js App Router (page, layout, sitemap, robots, manifest)
+│   ├── components/             # Modular UI primitives and page sections
+│   ├── data/                   # Single source of truth (portfolio.ts)
+│   └── lib/                    # Helpers and utility functions
+├── .env.example                # Safe environment variables template
+└── postcss.config.mjs          # PostCSS configuration for Tailwind CSS v4
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### Prerequisites
-- Node.js 20.9+
-- npm 10+
-
-### Install & Run
+### 1. Installation
 
 ```bash
-# Install dependencies
+git clone https://github.com/ronitkadwane/personal-os.git
+cd personal-os
 npm install
+```
 
-# Start dev server
+### 2. Environment Setup
+
+```bash
+cp .env.example .env.local
+```
+
+Configure your optional variables (e.g., `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_CONTACT_EMAIL`).
+
+### 3. Development Server
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000) to view the live portfolio.
 
-### Build for Production
+### 4. Build & Verification
 
 ```bash
-npm run build
-npm start
+npm run lint     # Validate TypeScript & ESLint rules
+npm run build    # Compile production build & generate static pages
+```
+
+### 5. Re-generate ATS Resume PDF
+
+To recompile `public/resume.pdf` from source text:
+
+```bash
+python3 scripts/generate_resume.py
 ```
 
 ---
 
-## ✏️ Customizing Your Portfolio
+## 🛡️ Security & Privacy
 
-**All content lives in one file:** [`src/data/portfolio.ts`](./src/data/portfolio.ts)
-
-1. **Personal Info** — Edit `personalInfo` object with your name, bio, links, and social URLs
-2. **Projects** — Edit the `projects` array (add/remove/update project cards)
-3. **Experience** — Edit the `experience` array (jobs, freelance, education)
-4. **Skills** — Edit the `skills` array categories and proficiency levels
-5. **Testimonials** — Edit the `testimonials` array with real client quotes
-6. **Blog Posts** — Edit the `blogPosts` array with your articles
-
----
-
-## 📧 Contact Form Setup
-
-The form validates with Zod on both client and server. To activate email sending:
-
-1. Install an email provider: `npm install resend` (recommended)
-2. Add your API key to `.env.local`: `RESEND_API_KEY=re_...`
-3. Uncomment and configure the email send block in [`src/app/api/contact/route.ts`](./src/app/api/contact/route.ts)
-
----
-
-## 🔐 Security
-
-The following headers are pre-configured in `next.config.ts`:
-- `Content-Security-Policy` (CSP)
-- `X-Frame-Options: DENY`
-- `X-Content-Type-Options: nosniff`
-- `Strict-Transport-Security` (HSTS)
-- `Referrer-Policy`
-- `Permissions-Policy`
-
----
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### Netlify
-
-```bash
-npm run build
-# Deploy the .next/out directory
-```
-
----
-
-## 📋 Changelog
-
-See [CHANGELOG.md](./CHANGELOG.md) for version history.
+- **Content Security Policy (CSP)** & HSTS enabled in `next.config.ts`.
+- **Zero Sensitive Data**: All personal residential addresses are abstracted; sensitive keys should only be supplied via `.env.local` (which is git-ignored).
+- **Zod Sanitization**: All contact submissions are validated against strict Zod schemas before processing.
 
 ---
 
 ## 📄 License
 
-MIT License — free to use and adapt for your own portfolio.
-
----
-
-<p align="center">Built with ❤️ by Ronit Kadwane</p>
+Released under the [MIT License](./LICENSE). Copyright © Ronit Kadwane.

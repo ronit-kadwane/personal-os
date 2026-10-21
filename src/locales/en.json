@@ -1,0 +1,127 @@
+{
+  "common": {
+    "backToHome": "Back to Portfolio",
+    "downloadResumePdf": "Resume (PDF)",
+    "downloadAtsResume": "Download ATS-Optimized Resume (PDF)",
+    "getInTouch": "Get In Touch",
+    "exploreProjects": "Explore Projects",
+    "sendEmail": "Send Direct Email",
+    "scroll": "Scroll",
+    "loading": "Loading...",
+    "theme": "Theme",
+    "themeToggle": "Toggle theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeToggleLight": "Switch to light mode",
+    "themeToggleDark": "Switch to dark mode",
+    "themeToggleSystem": "Switch to system mode"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact",
+    "getInTouch": "Get In Touch",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
+  },
+  "hero": {
+    "availabilityStatus": "Availability status",
+    "headlinePrefix": "I architect & build",
+    "headlineHighlight": "scalable",
+    "headlineSuffix": "production systems.",
+    "metrics": [
+      { "value": "10+", "label": "Years Experience" },
+      { "value": "15+", "label": "Production Apps" },
+      { "value": "100%", "label": "System Reliability" },
+      { "value": "4+", "label": "Orgs Architected" }
+    ]
+  },
+  "projects": {
+    "badge": "Selected Works",
+    "title": "Featured Production Systems",
+    "subtitle": "High-impact mobile and web platforms built for real-world resilience, scale, and performance.",
+    "allCategory": "All",
+    "categoryMobile": "Mobile",
+    "categoryFullstack": "Full-Stack",
+    "categoryEnterprise": "Enterprise",
+    "githubRepoAria": "GitHub repository",
+    "liveDemoAria": "Live demo"
+  },
+  "experience": {
+    "badge": "Career Journey",
+    "title": "Professional Experience",
+    "subtitle": "Proven track record of engineering leadership, scalable architecture, and full-cycle execution.",
+    "filterAll": "All",
+    "filterFulltime": "Full-time",
+    "filterFreelance": "Freelance",
+    "filterEducation": "Education"
+  },
+  "skills": {
+    "badge": "Technical Arsenal",
+    "title": "Skills & Expertise",
+    "subtitle": "Battle-tested technologies and architectural paradigms applied across enterprise systems.",
+    "legendExpert": "Expert",
+    "legendAdvanced": "Advanced",
+    "legendProficient": "Proficient"
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Let's Build Something Exceptional",
+    "subtitle": "Available for principal engineering roles, system architecture advisory, and high-scale contracts with US, European, and global tech leaders.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "sendDirectEmail": "Send Direct Email",
+    "findOnline": "Find me online",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "e.g., Alex Johnson",
+    "emailInputLabel": "Work Email",
+    "emailPlaceholder": "alex@company.com",
+    "budgetLabel": "Project Scope / Engagement",
+    "budgetPlaceholder": "Select engagement scope",
+    "projectTypeLabel": "Role / Project Type",
+    "projectTypePlaceholder": "Select project type",
+    "messageLabel": "Project Details & Goals",
+    "messagePlaceholder": "Tell me about your product, timeline, architecture needs, or role requirements...",
+    "submitButton": "Send Message",
+    "submittingButton": "Sending Message...",
+    "successTitle": "Message Dispatched Successfully!",
+    "successMessage": "Thank you for reaching out. Your message has been received and I will reply within 24 hours.",
+    "sendAnother": "Send another message",
+    "errorTitle": "Unable to send message",
+    "errorMessage": "Please try again or email directly at",
+    "budgets": [
+      { "value": "fulltime", "label": "Full-time Staff / Principal Role" },
+      { "value": "advisory", "label": "Architecture Advisory / Fractional" },
+      { "value": "contract-large", "label": "Enterprise Contract ($15K – $50K+)" },
+      { "value": "contract-medium", "label": "Targeted Milestone ($5K – $15K)" },
+      { "value": "other", "label": "Other / Exploring Opportunities" }
+    ],
+    "projectTypes": [
+      { "value": "fullstack-architecture", "label": "Full-Stack System Architecture" },
+      { "value": "mobile-app", "label": "React Native & Mobile Systems" },
+      { "value": "cloud-backend", "label": "Node.js & Distributed Cloud Microservices" },
+      { "value": "legacy-migration", "label": "Legacy Modernization & Optimization" },
+      { "value": "tech-leadership", "label": "Engineering Leadership & Mentorship" },
+      { "value": "other", "label": "Other Technical Requirement" }
+    ]
+  },
+  "footer": {
+    "tagline": "Vibe coded with passion, AI & architectural precision.",
+    "copyright": "All rights reserved."
+  },
+  "resume": {
+    "pageTitle": "Resume | Ronit Kadwane — Associate Staff Engineer & Full-Stack Architect",
+    "pageDescription": "ATS-optimized resume of Ronit Kadwane: over 10 years of expertise in software architecture, React, React-Native, Node.js, and scalable production systems.",
+    "backToPortfolio": "Back to Portfolio",
+    "downloadPdf": "Download PDF",
+    "executiveSummary": "Executive Summary",
+    "technicalArsenal": "Technical Arsenal",
+    "professionalExperience": "Professional Experience",
+    "featuredProductionSystems": "Featured Production Systems",
+    "education": "Education"
+  }
+}

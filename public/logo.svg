@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="rkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="rkDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded Squircle Badge -->
+  <rect x="4" y="4" width="92" height="92" rx="26" fill="url(#rkDark)" stroke="url(#rkGrad)" stroke-width="3" />
+  
+  <!-- Stylized Geometric "R" -->
+  <path d="M 28 26 L 28 74 M 28 26 L 46 26 C 54 26 58 31 58 38 C 58 45 54 50 46 50 L 28 50 M 44 50 L 59 74" 
+        stroke="url(#rkGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        
+  <!-- Stylized Geometric "K" -->
+  <path d="M 64 26 L 64 74 M 82 28 L 65 50 L 83 74" 
+        stroke="#F4F4F5" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Subtle Tech Accent Dot -->
+  <circle cx="83" cy="28" r="3.5" fill="#06B6D4" />
+</svg>

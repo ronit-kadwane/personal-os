@@ -1,32 +1,33 @@
 // ============================================================
-// PORTFOLIO DATA — Edit this file to customize all content
+// PORTFOLIO DATA — Verified Actual Information
+// Source: Ronit Kadwane Resume (Updated & Verified)
 // ============================================================
 
 export const personalInfo = {
-  name: "Ronit Kadwane",
-  title: "Full-Stack Engineer & AI Integrator",
-  email: "ronit@example.com",
-  location: "Mumbai, India 🇮🇳",
-  phone: "+91 98765 43210",
-  website: "https://ronitkadwane.dev",
+  name: 'Ronit Kadwane',
+  title: 'Associate Staff Engineer & Principal Full-Stack Architect',
+  email: 'kadwane.ronit@gmail.com',
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9824337236',
+  location: 'Surat, India • Open to US, European & Global Remote',
+  website: 'https://github.com/ronit-kadwane',
   availability: true,
-  availabilityText: "Open to Full-Time & Freelance",
-  bio: "I architect and ship production-grade full-stack products and AI-powered systems. 5+ years turning complex requirements into clean, performant software that scales.",
+  availabilityText: 'Available for Architecture & Engineering (US, EU & Worldwide)',
+  bio: 'Seasoned software professional with over 10 years of consolidated expertise designing and architecting high-scale applications and orchestrating resilient end-to-end production systems. Specialized in mobile and web platforms across React, React-Native, Node.js, and distributed cloud services for US, European, and global tech leaders.',
   roles: [
-    "Full-Stack Engineer",
-    "AI Integrator",
-    "Freelance Architect",
-    "React / Next.js Expert",
-    "LLM Systems Builder",
+    'Associate Staff Engineer',
+    'Principal Full-Stack Architect',
+    'React & React-Native Specialist',
+    'Node.js & Cloud Systems Lead',
+    'Production Systems Architect',
   ],
   socials: {
-    github: "https://github.com/ronitkadwane",
-    linkedin: "https://linkedin.com/in/ronitkadwane",
-    twitter: "https://x.com/ronitkadwane",
-    substack: "https://ronitkadwane.substack.com",
-    calendly: "https://cal.com/ronitkadwane",
+    github: 'https://github.com/ronit-kadwane',
+    linkedin: 'https://linkedin.com/in/ronit-kadwane-981017b8',
+    stackoverflow: 'https://stackoverflow.com/users/5057428/ronit-kadwane',
+    email: 'mailto:kadwane.ronit@gmail.com',
+    phone: 'tel:+919824337236',
   },
-  resumeUrl: "/resume.pdf",
+  resumeUrl: '/resume.pdf',
 };
 
 export type Project = {
@@ -35,104 +36,125 @@ export type Project = {
   description: string;
   longDescription: string;
   techStack: string[];
-  category: "ai" | "fullstack" | "saas" | "open-source";
+  category: 'mobile' | 'fullstack' | 'enterprise';
   metrics: string[];
   liveUrl?: string;
   githubUrl?: string;
   githubStars?: number;
   featured: boolean;
-  size: "large" | "medium" | "small";
+  size: 'large' | 'medium' | 'small';
   gradient: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "ai-pipeline",
-    title: "AIPipeline Pro",
-    description: "Multi-agent LLM orchestration platform with RAG pipelines",
+    id: 'digiqc',
+    title: 'DigiQC — Mobile App, CMS & Server',
+    description:
+      'Digital Quality Check management system with location radius verification and offline mode',
     longDescription:
-      "A production-grade orchestration layer for multi-agent LLM workflows. Supports RAG, tool-calling, streaming responses, and a visual pipeline builder. Reduced inference costs by 60% via smart caching.",
-    techStack: ["Next.js", "Python", "LangChain", "Pinecone", "OpenAI", "Redis"],
-    category: "ai",
-    metrics: ["-60% inference cost", "100K+ API calls/day", "$80K ARR"],
-    liveUrl: "https://aipipeline.pro",
-    githubUrl: "https://github.com/ronitkadwane/ai-pipeline",
-    githubStars: 1240,
+      'Engineered a comprehensive Digital Quality Check management platform providing stage-by-stage project history and inspection workflows for Architects, Civil Engineers, and Interior Designers. Features geo-location verification restricting inspection submission to project radius, alongside seamless offline synchronization.',
+    techStack: ['React-Native', 'ReactJS', 'NodeJS', 'feathersJS', 'MobX', 'CoreUI', 'MongoDB'],
+    category: 'fullstack',
+    metrics: ['Geo-fencing radius lock', 'Full offline sync', 'Multi-stage QA'],
     featured: true,
-    size: "large",
-    gradient: "from-indigo-600 via-violet-600 to-purple-700",
+    size: 'large',
+    gradient: 'from-indigo-600 via-violet-600 to-purple-700',
   },
   {
-    id: "nextsaas",
-    title: "NextSaaS Starter",
-    description: "Production-ready Next.js SaaS boilerplate with auth, billing, and teams",
+    id: 'chromecast-games',
+    title: 'Chromecast Arcade Controllers',
+    description:
+      'Multi-game Chromecast sender controller application with real-time event streaming',
     longDescription:
-      "Open-source SaaS starter kit: Auth.js authentication, Stripe billing, Postgres with Drizzle ORM, team workspaces, and a polished component library. Launched 12 production apps.",
-    techStack: ["Next.js", "TypeScript", "Drizzle", "Stripe", "Auth.js"],
-    category: "open-source",
-    metrics: ["2.1K ⭐ GitHub", "12 apps shipped", "-70% setup time"],
-    liveUrl: "https://nextsaas.dev",
-    githubUrl: "https://github.com/ronitkadwane/nextsaas",
-    githubStars: 2100,
+      'Built Chromecast-supported arcade game controllers (sender app) communicating directly with receiver applications running on Chromecast devices across multiple games (Cast Games, Math Games, Hangman, Bingo). Dynamically renders game-specific controllers and streams bidirectional actions.',
+    techStack: ['React-Native', 'Chromecast-SDK', 'JavaScript', 'Real-Time Events'],
+    category: 'mobile',
+    metrics: ['Multi-game support', 'Real-time sync', 'Dynamic controller UI'],
     featured: true,
-    size: "medium",
-    gradient: "from-cyan-500 to-blue-600",
+    size: 'medium',
+    gradient: 'from-cyan-500 to-blue-600',
   },
   {
-    id: "ecommerce-engine",
-    title: "FluxCommerce",
-    description: "High-performance headless e-commerce with AI recommendations",
+    id: 'video-streaming-apps',
+    title: 'Video Streaming Apps (Joyce Meyer & PragerU)',
+    description: 'High-performance video streaming mobile applications with Brightcove & JWPlayer',
     longDescription:
-      "Headless commerce engine with AI-powered product recommendations, real-time inventory, and a composable storefront. Handles 50K daily active users with sub-100ms API responses.",
-    techStack: ["Next.js", "Node.js", "Postgres", "Redis", "TensorFlow.js"],
-    category: "fullstack",
-    metrics: ["50K DAU", "<100ms API", "+35% conversion"],
-    liveUrl: "https://fluxcommerce.io",
+      'Developed high-traffic video streaming mobile applications featuring offline save-for-later capabilities and synchronized notes taking. Integrated Brightcove SDK, JWPlayer, NativeBase, and robust state management via MobX and Redux.',
+    techStack: ['React-Native', 'Brightcove SDK', 'JWPlayer', 'MobX', 'Redux', 'NativeBase'],
+    category: 'mobile',
+    metrics: ['Offline video cache', 'Timestamped notes', 'Multi-SDK player'],
     featured: true,
-    size: "medium",
-    gradient: "from-emerald-500 to-teal-600",
+    size: 'medium',
+    gradient: 'from-emerald-500 to-teal-600',
   },
   {
-    id: "devops-dashboard",
-    title: "OpsVault",
-    description: "Unified DevOps observability dashboard with anomaly detection",
+    id: 'financial-insights',
+    title: 'Financial Profile Evaluation Module',
+    description:
+      'Core module evaluating client financial profiles to empower users with accurate financial insights',
     longDescription:
-      "Real-time observability platform aggregating metrics from Kubernetes, GitHub Actions, AWS CloudWatch, and PagerDuty. ML-based anomaly detection cuts MTTR by 40%.",
-    techStack: ["React", "Go", "Prometheus", "Grafana", "AWS", "K8s"],
-    category: "saas",
-    metrics: ["-40% MTTR", "15 integrations", "99.99% uptime"],
-    liveUrl: "https://opsvault.io",
-    featured: false,
-    size: "small",
-    gradient: "from-orange-500 to-rose-600",
+      'Designed and architected the financial evaluation module at Nagarro. Crafted high-throughput system evaluating complex client profiles, leveraging React-Native, React, NodeJS, and MongoDB to deliver reliable, accurate financial analytics.',
+    techStack: ['React-Native', 'React', 'NodeJS', 'MongoDB', 'Architecture'],
+    category: 'enterprise',
+    metrics: ['High precision analytics', 'Scalable architecture', 'Enterprise resilience'],
+    featured: true,
+    size: 'medium',
+    gradient: 'from-orange-500 to-rose-600',
   },
   {
-    id: "vector-search",
-    title: "SemanticSearch SDK",
-    description: "Zero-config semantic search SDK for any Node.js application",
+    id: 'contactbook',
+    title: 'Contactbook — G Suite Collaborative Platform',
+    description:
+      'Collaborative Gmail & Google Workspace contact sharing and co-editing web application',
     longDescription:
-      "Drop-in semantic search powered by vector embeddings. Works with any Postgres database via pgvector. Includes a React component library for instant search UI.",
-    techStack: ["TypeScript", "pgvector", "OpenAI Embeddings", "React"],
-    category: "open-source",
-    metrics: ["800+ npm weekly downloads", "4.9★ rating", "MIT License"],
-    githubUrl: "https://github.com/ronitkadwane/semantic-search-sdk",
-    githubStars: 430,
+      'Automates the process of sharing and co-editing Gmail contacts across G Suite team members, featuring fine-grained permission controls, real-time collaboration, and centralized directory management.',
+    techStack: ['ReactJS', 'MobX', 'feathersJS', 'MongoDB', 'Google APIs'],
+    category: 'fullstack',
+    metrics: ['G Suite integration', 'Collaborative co-editing', 'Secure syncing'],
     featured: false,
-    size: "small",
-    gradient: "from-pink-500 to-violet-600",
+    size: 'small',
+    gradient: 'from-pink-500 to-violet-600',
   },
   {
-    id: "fintech-api",
-    title: "PayLedger API",
-    description: "SOC2-compliant payment reconciliation & ledger API",
+    id: 'los-alisos',
+    title: 'Los Alisos — Resident & Unit Management',
+    description: 'Resident portal for unit bookings, bill payments, and maintenance work orders',
     longDescription:
-      "Financial-grade double-entry ledger API with multi-currency support, reconciliation automation, and real-time webhooks. Processes $2M+ monthly.",
-    techStack: ["Node.js", "Postgres", "Stripe", "AWS Lambda", "TypeScript"],
-    category: "fullstack",
-    metrics: ["$2M+ processed/mo", "SOC2 compliant", "99.9% accuracy"],
+      'Comprehensive resident and unit management portal across web and mobile. Empowers residents to book units, settle utility bills, and generate maintenance work orders with full administrator back-office tracking.',
+    techStack: ['ReactJS', 'React-Native', 'NodeJS', 'LoopBack', 'Node-RED', 'MongoDB'],
+    category: 'fullstack',
+    metrics: ['Unit booking engine', 'Automated billing', 'Work order tracking'],
     featured: false,
-    size: "small",
-    gradient: "from-yellow-500 to-orange-600",
+    size: 'small',
+    gradient: 'from-yellow-500 to-orange-600',
+  },
+  {
+    id: 'refrens-workflow',
+    title: 'Refrens — B2B Workflow & Invoicing Engine',
+    description: 'Business network workflow tool handling invoices, expenditures, and quotations',
+    longDescription:
+      'Handled the workflow tool of the Refrens platform, powering quotation generation, invoice lifecycle management, and expenditure tracking for a rapidly growing network of businesses and freelancers.',
+    techStack: ['JavaScript', 'React', 'NodeJS', 'MongoDB', 'B2B Workflows'],
+    category: 'fullstack',
+    metrics: ['Invoicing lifecycle', 'Quotation workflow', 'Expenditure tracker'],
+    featured: false,
+    size: 'small',
+    gradient: 'from-teal-500 to-cyan-600',
+  },
+  {
+    id: 'android-libraries',
+    title: 'Android Native Bridges & Libraries',
+    description:
+      'Native Android plugins to expose device features in hybrid React-Native, Ionic & Cordova',
+    longDescription:
+      'Developed custom native Android libraries and bridging plugins enabling hybrid technologies (React-Native, Ionic, Cordova) to seamlessly utilize low-level Android device capabilities with peak performance and reliability.',
+    techStack: ['Android', 'Java', 'React-Native', 'Ionic', 'Cordova'],
+    category: 'mobile',
+    metrics: ['Native performance', 'Multi-framework bridge', 'Custom hardware access'],
+    featured: false,
+    size: 'small',
+    gradient: 'from-violet-500 to-indigo-600',
   },
 ];
 
@@ -145,7 +167,7 @@ export type Experience = {
   startDate: string;
   endDate?: string;
   location: string;
-  type: "fulltime" | "freelance" | "contract" | "education";
+  type: 'fulltime' | 'freelance' | 'contract' | 'education';
   description: string;
   highlights: string[];
   techStack: string[];
@@ -153,133 +175,180 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    id: "freelance-2024",
-    role: "Independent Software Architect",
-    company: "Self-employed / Freelance",
-    period: "2024 – Present",
-    startDate: "2024-01",
-    location: "Remote",
-    type: "freelance",
+    id: 'nagarro',
+    role: 'Associate Staff Engineer',
+    company: 'Nagarro Software Pvt. Ltd',
+    period: 'September 2021 – Present',
+    startDate: '2021-09',
+    location: 'Surat, India',
+    type: 'fulltime',
     description:
-      "Designing and shipping production-grade AI systems, SaaS platforms, and API infrastructure for funded startups and enterprise clients worldwide.",
+      'Promoted from Senior Engineer to Associate Staff Engineer in February 2023. Taking charge of designing and architecting the core financial module.',
     highlights: [
-      "Built AI-powered analytics SaaS from 0 → $80K ARR in 10 months",
-      "Led architecture review and migration of 500K-user platform to App Router",
-      "Delivered 8 client projects with 5-star reviews on Toptal & direct referrals",
+      'Transitioned to Associate Staff Engineer in February 2023, driving system architecture and technical strategy',
+      'Crafted and scaled the system that evaluates client profiles to empower users with accurate financial insights',
+      'Leveraged React-Native, React, NodeJS, and MongoDB to engineer highly available and resilient production systems',
+      'Mentored junior and senior engineers, driving best practices in code quality and system scalability',
     ],
-    techStack: ["Next.js", "Python", "LangChain", "AWS", "Postgres"],
+    techStack: ['React-Native', 'React', 'NodeJS', 'MongoDB', 'System Architecture', 'JavaScript'],
   },
   {
-    id: "senior-eng-2022",
-    role: "Senior Full-Stack Engineer",
-    company: "TechVentures Inc.",
-    companyUrl: "https://techventures.example.com",
-    period: "2022 – 2024",
-    startDate: "2022-06",
-    endDate: "2024-01",
-    location: "Bangalore, India",
-    type: "fulltime",
+    id: 'maven-agency',
+    role: 'FullStack Developer',
+    company: 'Maven Agency Pvt. Ltd.',
+    period: 'December 2020 – September 2021',
+    startDate: '2020-12',
+    endDate: '2021-09',
+    location: 'Surat, India',
+    type: 'fulltime',
     description:
-      "Led a team of 6 engineers building a B2B SaaS platform serving 200+ enterprise clients. Owned the entire product surface from API design to frontend delivery.",
+      'Handled South Africa-based enterprise client providing intelligent chatbots and user insights.',
     highlights: [
-      "Reduced P99 API latency by 65% through query optimization and caching strategies",
-      "Architected real-time collaboration features used by 50K daily active users",
-      "Mentored 3 junior engineers, 2 of whom were promoted within 12 months",
+      'Assisted enterprise client in migrating legacy systems into modern JavaScript frameworks',
+      'Built and optimized full-stack chatbot interfaces and backend telemetry pipelines',
+      'Improved deployment efficiency and system maintainability through modernized codebase structure',
     ],
-    techStack: ["React", "Node.js", "Postgres", "Redis", "Kubernetes"],
+    techStack: ['JavaScript', 'React', 'NodeJS', 'ExpressJS', 'Legacy Migration', 'Git'],
   },
   {
-    id: "mid-eng-2021",
-    role: "Full-Stack Developer",
-    company: "StartupXYZ",
-    period: "2021 – 2022",
-    startDate: "2021-03",
-    endDate: "2022-06",
-    location: "Mumbai, India",
-    type: "fulltime",
+    id: 'refrens',
+    role: 'Product Engineer',
+    company: 'Refrens Internet Pvt. Ltd.',
+    period: 'March 2020 – November 2020',
+    startDate: '2020-03',
+    endDate: '2020-11',
+    location: 'Surat, India',
+    type: 'fulltime',
     description:
-      "Built and shipped three revenue-generating product lines as an early full-stack engineer at a Series A startup.",
+      'Owned the core workflow tool of the platform enabling businesses and freelancers to manage their financial operations.',
     highlights: [
-      "Shipped payments integration (Razorpay + Stripe) that enabled first $500K in revenue",
-      "Rewrote legacy PHP monolith to Node.js microservices — 10x throughput improvement",
-      "Built admin dashboard & analytics suite adopted by entire customer success team",
+      'Managed and scaled end-to-end workflow tools encompassing invoices, expenditures, and quotations',
+      'Enhanced user experience and reduced latency across financial document generation',
+      'Collaborated closely with product managers to deliver fast-turnaround customer-centric features',
     ],
-    techStack: ["React", "Node.js", "MySQL", "Docker", "Stripe"],
+    techStack: ['JavaScript', 'React', 'NodeJS', 'MongoDB', 'Financial Workflows'],
   },
   {
-    id: "education",
-    role: "B.Tech Computer Science",
-    company: "IIT Bombay",
-    companyUrl: "https://iitb.ac.in",
-    period: "2017 – 2021",
-    startDate: "2017-08",
-    endDate: "2021-05",
-    location: "Mumbai, India",
-    type: "education",
+    id: 'logicwind',
+    role: 'FullStack Developer',
+    company: 'Logicwind',
+    period: 'January 2016 – February 2020',
+    startDate: '2016-01',
+    endDate: '2020-02',
+    location: 'Surat, India',
+    type: 'fulltime',
     description:
-      "Graduated with First Class Honors. Specialized in Distributed Systems and Machine Learning. Active competitive programmer and open-source contributor.",
+      'Engineered diverse production systems spanning video streaming, Chromecast IoT gaming, QA management, resident portals, and cloud microservices.',
     highlights: [
-      "CGPA: 9.1/10 — Graduated with First Class Honors",
-      "Published paper on distributed caching at IEEE COMSNETS 2021",
-      "Core team member, Open Source Society — organized 3 national hackathons",
+      'DigiQC: Built digital quality check mobile application, CMS, and server with geolocation verification and offline capability',
+      'Chromecast Gaming: Developed Chromecast arcade game controllers (sender/receiver model) for multiple games',
+      'Streaming Video: Built media applications for Joyce Meyer Ministries & PragerU with offline saves and note taking',
+      'Los Alisos & Contactbook: Delivered resident unit management portal and automated G Suite contact sharing tool',
+      'Native & Cloud: Authored Android native libraries for React-Native/Ionic/Cordova, LoopBack nodes on Node-RED, and NodeJS AWS Lambda compute functions',
     ],
-    techStack: ["C++", "Python", "Java", "Linux", "Research"],
+    techStack: [
+      'ReactJS',
+      'React-Native',
+      'NodeJS',
+      'feathersJS',
+      'LoopBack',
+      'Node-RED',
+      'MongoDB',
+      'AWS Lambda',
+      'Android',
+    ],
+  },
+  {
+    id: 'narola',
+    role: 'Software Engineer',
+    company: 'Narola Infotech (P) LTD',
+    period: 'June 2015 – September 2015',
+    startDate: '2015-06',
+    endDate: '2015-09',
+    location: 'Surat, India',
+    type: 'fulltime',
+    description:
+      'Developed native Android mobile applications for industrial cost calculation and e-commerce.',
+    highlights: [
+      'Developed cost calculation calculator mobile application of embroidery machines for Android',
+      'Engineered modules for a native Android e-commerce mobile application',
+    ],
+    techStack: ['Android', 'Java', 'Mobile Development', 'Git'],
+  },
+  {
+    id: 'education-scet',
+    role: 'B.E. Computer Engineering',
+    company: 'Sarvajanik College of Engineering & Technology',
+    period: 'July 2011 – May 2015',
+    startDate: '2011-07',
+    endDate: '2015-05',
+    location: 'Surat, India',
+    type: 'education',
+    description:
+      'Graduated with Bachelor of Engineering in Computer Engineering with 7.16 / 10 CGPA.',
+    highlights: [
+      'Grade: 7.16 / 10',
+      'Core focus on Data Structures, Algorithms, Software Architecture, and Database Systems',
+    ],
+    techStack: ['Computer Science', 'Algorithms', 'Data Structures', 'Java', 'DBMS'],
   },
 ];
 
 export type Skill = {
   category: string;
   icon: string;
-  items: Array<{ name: string; level: "expert" | "advanced" | "proficient" }>;
+  items: Array<{ name: string; level: 'expert' | 'advanced' | 'proficient' }>;
 };
 
 export const skills: Skill[] = [
   {
-    category: "Frontend",
-    icon: "🎨",
+    category: 'Languages & Frameworks',
+    icon: '⚡',
     items: [
-      { name: "React / Next.js", level: "expert" },
-      { name: "TypeScript", level: "expert" },
-      { name: "Tailwind CSS", level: "expert" },
-      { name: "Framer Motion", level: "advanced" },
-      { name: "WebSockets / SSE", level: "advanced" },
-      { name: "React Native", level: "proficient" },
+      { name: 'JavaScript (ES6+)', level: 'expert' },
+      { name: 'ReactJS', level: 'expert' },
+      { name: 'NextJS', level: 'expert' },
+      { name: 'React-Native', level: 'expert' },
+      { name: 'NodeJS', level: 'expert' },
+      { name: 'Android (Native)', level: 'advanced' },
+      { name: 'HTML5 & CSS3', level: 'expert' },
     ],
   },
   {
-    category: "Backend & APIs",
-    icon: "⚙️",
+    category: 'Backend & Cloud',
+    icon: '☁️',
     items: [
-      { name: "Node.js / Express", level: "expert" },
-      { name: "Python / FastAPI", level: "expert" },
-      { name: "Go", level: "advanced" },
-      { name: "GraphQL", level: "advanced" },
-      { name: "REST API Design", level: "expert" },
-      { name: "gRPC", level: "proficient" },
+      { name: 'ExpressJS', level: 'expert' },
+      { name: 'feathersJS', level: 'expert' },
+      { name: 'Loopback', level: 'advanced' },
+      { name: 'AWS Lambda', level: 'advanced' },
+      { name: 'Google Cloud Function', level: 'advanced' },
+      { name: 'Firebase', level: 'advanced' },
+      { name: 'MongoDB', level: 'expert' },
     ],
   },
   {
-    category: "AI & ML",
-    icon: "🤖",
+    category: 'Architecture & Design',
+    icon: '🏗️',
     items: [
-      { name: "LangChain / LlamaIndex", level: "expert" },
-      { name: "OpenAI / Anthropic APIs", level: "expert" },
-      { name: "Vector DBs (Pinecone, pgvector)", level: "advanced" },
-      { name: "RAG Pipelines", level: "expert" },
-      { name: "Fine-tuning (LoRA)", level: "advanced" },
-      { name: "TensorFlow / PyTorch", level: "proficient" },
+      { name: 'System Architecture', level: 'expert' },
+      { name: 'Database Schema Design', level: 'expert' },
+      { name: 'Production Engineering', level: 'expert' },
+      { name: 'Scalability & Robustness', level: 'expert' },
+      { name: 'Offline Sync Architectures', level: 'expert' },
+      { name: 'REST API Design', level: 'expert' },
     ],
   },
   {
-    category: "Data & Infrastructure",
-    icon: "🛢️",
+    category: 'Leadership & Tooling',
+    icon: '🛠️',
     items: [
-      { name: "PostgreSQL", level: "expert" },
-      { name: "Redis", level: "expert" },
-      { name: "MongoDB", level: "advanced" },
-      { name: "AWS (EC2, RDS, Lambda, S3)", level: "expert" },
-      { name: "Docker / Kubernetes", level: "advanced" },
-      { name: "Terraform", level: "proficient" },
+      { name: 'Technical Leadership', level: 'expert' },
+      { name: 'Developer Mentorship', level: 'expert' },
+      { name: 'Git & Version Control', level: 'expert' },
+      { name: 'Jira & Agile Workflows', level: 'expert' },
+      { name: 'Chromecast SDK', level: 'advanced' },
+      { name: 'Node-RED', level: 'advanced' },
     ],
   },
 ];
@@ -294,68 +363,9 @@ export type Testimonial = {
   rating: number;
 };
 
-export const testimonials: Testimonial[] = [
-  {
-    id: "t1",
-    name: "Sarah Chen",
-    title: "CTO",
-    company: "Luminary AI",
-    avatar: "SC",
-    quote:
-      "Ronit delivered an enterprise-grade AI platform in 8 weeks. His ability to translate ambiguous requirements into clean, scalable architecture is exceptional. We're still using the system 18 months later without a single major issue.",
-    rating: 5,
-  },
-  {
-    id: "t2",
-    name: "Marcus Webb",
-    title: "VP Engineering",
-    company: "TechVentures Inc.",
-    avatar: "MW",
-    quote:
-      "The best engineer I've worked with in 12 years of building teams. Ronit doesn't just write code — he thinks in systems. He completely transformed our API performance and left behind clear documentation and patterns the whole team benefited from.",
-    rating: 5,
-  },
-  {
-    id: "t3",
-    name: "Priya Sharma",
-    title: "Founder & CEO",
-    company: "FlowStack",
-    avatar: "PS",
-    quote:
-      "We needed a full SaaS product in 3 months with limited budget. Ronit not only delivered but gave us a maintainable codebase with room to grow. Month 4, we closed our seed round partly on the strength of the technical demo he built.",
-    rating: 5,
-  },
-  {
-    id: "t4",
-    name: "David Okonkwo",
-    title: "Head of Product",
-    company: "Veritas Finance",
-    avatar: "DO",
-    quote:
-      "Exceptional problem solver with a strong product sense. Ronit always considers the user experience and business impact alongside the technical solution. Rare combination in a senior engineer.",
-    rating: 5,
-  },
-  {
-    id: "t5",
-    name: "Lena Fischer",
-    title: "Engineering Manager",
-    company: "CloudNative GmbH",
-    avatar: "LF",
-    quote:
-      "We brought Ronit in as a contractor to rescue a failing microservices migration. In 6 weeks he diagnosed the root cause, refactored the critical paths, and documented everything. Outstanding communicator and technologist.",
-    rating: 5,
-  },
-  {
-    id: "t6",
-    name: "James Thornton",
-    title: "Co-Founder",
-    company: "BuildFast Labs",
-    avatar: "JT",
-    quote:
-      "Ronit is in the top 1% of engineers I've hired through Toptal. Fast, reliable, and genuinely invested in the outcome. He proactively flagged scope risks and delivered ahead of schedule every sprint.",
-    rating: 5,
-  },
-];
+// Existing assumed testimonials removed per user instruction.
+// Awaiting verified quotes from user.
+export const testimonials: Testimonial[] = [];
 
 export type BlogPost = {
   id: string;
@@ -369,77 +379,6 @@ export type BlogPost = {
   coverGradient: string;
 };
 
-export const blogPosts: BlogPost[] = [
-  {
-    id: "b1",
-    slug: "rag-at-production-scale",
-    title: "RAG at Production Scale: Lessons from 100M Vector Queries",
-    excerpt:
-      "What actually breaks when you take a RAG prototype to production — chunking strategies, embedding model selection, hybrid search, and re-ranking.",
-    publishedAt: "2026-09-15",
-    readingTime: "12 min read",
-    tags: ["AI", "RAG", "Vector DBs", "Production"],
-    featured: true,
-    coverGradient: "from-indigo-600 to-violet-600",
-  },
-  {
-    id: "b2",
-    slug: "nextjs-app-router-patterns",
-    title: "5 Next.js App Router Patterns That Eliminate Boilerplate",
-    excerpt:
-      "Advanced RSC composition patterns, parallel data loading, optimistic UI, and streaming that I apply on every project to stay ahead of the deadline.",
-    publishedAt: "2026-08-22",
-    readingTime: "9 min read",
-    tags: ["Next.js", "React", "Performance", "Patterns"],
-    featured: true,
-    coverGradient: "from-cyan-500 to-blue-600",
-  },
-  {
-    id: "b3",
-    slug: "building-agentic-systems",
-    title: "Building Reliable Agentic AI Systems in 2026",
-    excerpt:
-      "Beyond demos: how to design tool-calling agents that are deterministic, auditable, and safe for production deployment.",
-    publishedAt: "2026-07-10",
-    readingTime: "15 min read",
-    tags: ["AI Agents", "LLMs", "Architecture", "Safety"],
-    featured: true,
-    coverGradient: "from-emerald-500 to-teal-600",
-  },
-  {
-    id: "b4",
-    slug: "postgres-at-scale",
-    title: "Postgres at Scale: Partitioning, Indexing, and Query Planner Secrets",
-    excerpt:
-      "Deep dive into the query planner, partial indexes, table partitioning, and EXPLAIN ANALYZE tricks that turned our 10-second queries into 50ms ones.",
-    publishedAt: "2026-06-05",
-    readingTime: "10 min read",
-    tags: ["PostgreSQL", "Performance", "Database", "Backend"],
-    featured: false,
-    coverGradient: "from-orange-500 to-rose-500",
-  },
-  {
-    id: "b5",
-    slug: "freelance-pricing-guide",
-    title: "How to Price Your Freelance Engineering Work (and Get It)",
-    excerpt:
-      "The pricing strategy that took me from $50/hr to $200/hr — positioning, proposals, rate anchoring, and when to walk away from bad deals.",
-    publishedAt: "2026-05-18",
-    readingTime: "7 min read",
-    tags: ["Freelance", "Business", "Career"],
-    featured: false,
-    coverGradient: "from-pink-500 to-violet-600",
-  },
-  {
-    id: "b6",
-    slug: "typescript-advanced-patterns",
-    title: "TypeScript Wizardry: Conditional Types, Inference & Branded Types",
-    excerpt:
-      "Advanced type patterns that eliminate entire classes of runtime errors — conditional types, template literals, infer, and domain modeling with branded types.",
-    publishedAt: "2026-04-30",
-    readingTime: "11 min read",
-    tags: ["TypeScript", "Type Safety", "Advanced", "Patterns"],
-    featured: false,
-    coverGradient: "from-yellow-500 to-orange-600",
-  },
-];
+// Existing assumed blog posts removed per user instruction.
+// Awaiting verified blog publications from user.
+export const blogPosts: BlogPost[] = [];

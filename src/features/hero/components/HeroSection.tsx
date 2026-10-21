@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download, Calendar, Sparkles } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TwitterXIcon } from '@/components/ui/BrandIcons';
-import { personalInfo } from '@/data/portfolio';
+import { ArrowDown, MessageSquare, Sparkles, Download } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/BrandIcons';
 import { Button } from '@/components/ui/Button';
+import { personalInfo } from '@/data/portfolio';
+import { t } from '@/locales';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -13,7 +14,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: 'easeOut' as const },
 });
 
-export function Hero() {
+export function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -31,8 +32,10 @@ export function Hero() {
     } else if (isDeleting && displayed.length > 0) {
       timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
     } else if (isDeleting && displayed.length === 0) {
-      setIsDeleting(false);
-      setRoleIndex((i) => (i + 1) % roles.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setRoleIndex((i) => (i + 1) % roles.length);
+      }, 400);
     }
 
     return () => clearTimeout(timeout);
@@ -42,19 +45,23 @@ export function Hero() {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden bg-background text-foreground transition-colors duration-200"
     >
-      {/* Background glows */}
+      {/* Background ambient glows */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-600/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-indigo-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-violet-500/8 rounded-full blur-3xl" />
         <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/6 rounded-full blur-3xl" />
-        {/* Grid overlay */}
+        {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
           style={{
             backgroundImage:
               'linear-gradient(rgba(99,102,241,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,.6) 1px, transparent 1px)',
@@ -67,9 +74,9 @@ export function Hero() {
         {/* Availability badge */}
         <motion.div {...fadeUp(0.1)} className="flex justify-center mb-8">
           <span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-sm font-medium"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-400 text-sm font-medium shadow-sm"
             role="status"
-            aria-label="Availability status"
+            aria-label={t.hero.availabilityStatus}
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -82,16 +89,16 @@ export function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-100 leading-[1.08] mb-4"
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08] mb-4"
         >
-          I build{' '}
+          {t.hero.headlinePrefix}{' '}
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
-              extraordinary
+            <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent">
+              {t.hero.headlineHighlight}
             </span>
           </span>
           <br />
-          digital products.
+          {t.hero.headlineSuffix}
         </motion.h1>
 
         {/* Role ticker */}
@@ -100,17 +107,17 @@ export function Hero() {
           className="flex justify-center items-center gap-2 mb-6 h-8"
           aria-label={`Current role: ${currentRole}`}
         >
-          <Sparkles size={16} className="text-indigo-400 flex-shrink-0" />
-          <span className="font-mono text-lg text-zinc-400">
-            <span className="text-indigo-400">{displayed}</span>
-            <span className="animate-pulse text-indigo-400">|</span>
+          <Sparkles size={16} className="text-indigo-500 flex-shrink-0" />
+          <span className="font-mono text-lg text-muted">
+            <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{displayed}</span>
+            <span className="animate-pulse text-indigo-500">|</span>
           </span>
         </motion.div>
 
         {/* Sub-headline */}
         <motion.p
           {...fadeUp(0.4)}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed mb-10"
         >
           {personalInfo.bio}
         </motion.p>
@@ -118,7 +125,7 @@ export function Hero() {
         {/* CTA Buttons */}
         <motion.div
           {...fadeUp(0.5)}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
         >
           <Button
             id="hero-explore-work"
@@ -126,7 +133,7 @@ export function Hero() {
             onClick={scrollToProjects}
             className="w-full sm:w-auto group"
           >
-            Explore My Work
+            {t.common.exploreProjects}
             <ArrowDown
               size={16}
               className="group-hover:translate-y-0.5 transition-transform duration-200"
@@ -135,35 +142,36 @@ export function Hero() {
 
           <a
             href={personalInfo.resumeUrl}
-            download
+            download="Ronit_Kadwane_Resume.pdf"
             id="hero-download-resume"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-zinc-300 border border-zinc-700 hover:border-zinc-500 hover:text-zinc-100 rounded-xl transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-foreground bg-surface-elevated hover:bg-surface-hover border border-border rounded-xl transition-all duration-200 shadow-sm"
           >
-            <Download size={16} />
-            Download Resume
+            <Download size={16} className="text-indigo-500" />
+            {t.common.downloadResumePdf}
           </a>
 
-          <a
-            href={personalInfo.socials.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
-            id="hero-book-call"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-cyan-300 border border-cyan-500/30 hover:border-cyan-400/60 hover:bg-cyan-500/5 rounded-xl transition-all duration-200"
+          <Button
+            id="hero-contact-cta"
+            size="lg"
+            variant="secondary"
+            onClick={scrollToContact}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2"
           >
-            <Calendar size={16} />
-            Book a Call
-          </a>
+            <MessageSquare size={16} />
+            {t.common.getInTouch}
+          </Button>
         </motion.div>
 
         {/* Social Links */}
-        <motion.div
-          {...fadeUp(0.6)}
-          className="flex items-center justify-center gap-4 mb-16"
-        >
+        <motion.div {...fadeUp(0.6)} className="flex items-center justify-center gap-4 mb-16">
           {[
             { icon: GithubIcon, href: personalInfo.socials.github, label: 'GitHub' },
             { icon: LinkedinIcon, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
-            { icon: TwitterXIcon, href: personalInfo.socials.twitter, label: 'X / Twitter' },
+            {
+              icon: StackOverflowIcon,
+              href: personalInfo.socials.stackoverflow,
+              label: 'StackOverflow',
+            },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
@@ -171,7 +179,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="p-2.5 rounded-xl text-zinc-500 hover:text-zinc-100 hover:bg-white/5 border border-transparent hover:border-zinc-700 transition-all duration-200"
+              className="p-2.5 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 shadow-sm"
             >
               <Icon size={18} />
             </a>
@@ -183,15 +191,10 @@ export function Hero() {
           {...fadeUp(0.7)}
           className="flex flex-wrap items-center justify-center gap-8 sm:gap-16"
         >
-          {[
-            { value: '5+', label: 'Years Building' },
-            { value: '30+', label: 'Projects Shipped' },
-            { value: '$2M+', label: 'Revenue Enabled' },
-            { value: '20+', label: 'Happy Clients' },
-          ].map(({ value, label }) => (
+          {t.hero.metrics.map(({ value, label }) => (
             <div key={label} className="text-center">
-              <div className="text-2xl font-bold text-zinc-100">{value}</div>
-              <div className="text-xs text-zinc-500 mt-0.5">{label}</div>
+              <div className="text-2xl font-bold text-foreground">{value}</div>
+              <div className="text-xs text-muted mt-0.5">{label}</div>
             </div>
           ))}
         </motion.div>
@@ -202,16 +205,18 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
         aria-hidden="true"
       >
         <div className="flex flex-col items-center gap-1.5">
-          <span className="text-[10px] text-zinc-600 uppercase tracking-widest font-mono">Scroll</span>
+          <span className="text-[10px] text-muted uppercase tracking-widest font-mono">
+            {t.common.scroll}
+          </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
           >
-            <ArrowDown size={14} className="text-zinc-600" />
+            <ArrowDown size={14} className="text-muted" />
           </motion.div>
         </div>
       </motion.div>

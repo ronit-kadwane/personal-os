@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https:",
               "connect-src 'self' https://api.calendly.com https://cal.com",
-              "frame-src https://cal.com https://calendly.com",
+              'frame-src https://cal.com https://calendly.com',
             ].join('; '),
           },
         ],

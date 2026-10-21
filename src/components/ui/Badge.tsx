@@ -8,30 +8,18 @@ interface BadgeProps {
   className?: string;
 }
 
-export function Badge({
-  children,
-  variant = 'default',
-  size = 'md',
-  className,
-}: BadgeProps) {
+export function Badge({ children, variant = 'default', size = 'md', className }: BadgeProps) {
   const base =
     'inline-flex items-center gap-1 font-mono font-medium rounded-full border leading-none whitespace-nowrap';
 
   const variants = {
-    default:
-      'bg-zinc-800/80 text-zinc-300 border-zinc-700/50',
-    indigo:
-      'bg-indigo-500/15 text-indigo-300 border-indigo-500/30',
-    cyan:
-      'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
-    emerald:
-      'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
-    rose:
-      'bg-rose-500/15 text-rose-300 border-rose-500/30',
-    amber:
-      'bg-amber-500/15 text-amber-300 border-amber-500/30',
-    violet:
-      'bg-violet-500/15 text-violet-300 border-violet-500/30',
+    default: 'bg-surface-elevated text-muted-foreground border-border',
+    indigo: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/25',
+    cyan: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/25',
+    emerald: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/25',
+    rose: 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/25',
+    amber: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25',
+    violet: 'bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-500/25',
   };
 
   const sizes = {
@@ -39,9 +27,5 @@ export function Badge({
     md: 'px-2.5 py-1 text-xs',
   };
 
-  return (
-    <span className={cn(base, variants[variant], sizes[size], className)}>
-      {children}
-    </span>
-  );
+  return <span className={cn(base, variants[variant], sizes[size], className)}>{children}</span>;
 }
