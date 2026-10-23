@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Project Standards & Conventions
 
 ## 1. Directory & Component Hierarchy (Strict)
@@ -39,3 +43,9 @@
 - Avoid nested ternaries; extract into readable helper functions or switch statements.
 - Prettier formatting is enforced (`npm run format` / `npm run format:check`).
 - Strict TypeScript verification (`npx tsc --noEmit`) must pass with zero errors.
+
+## 5. Local Port Cleanliness & Process Hygiene
+
+- **Zero Lingering Ports**: Never leave background dev servers or port 3000 listeners running upon turn completion.
+- **Mandatory Cleanup**: Terminate all test servers (`manage_task kill`) and verify port 3000 is clean (`lsof -i :3000`) before returning.
+- **Terminal Priority**: Developer terminal retains exclusive rights to `npm run dev` / `npm start`.

@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - OG image generation via Next.js metadata API
 - Blog post dynamic routes with MDX
 
+## [1.5.1] — 2026-10-23
+
+### Security
+
+- **Next.js Security Upgrade**: Upgraded Next.js from `16.4.0` to `16.4.2` and `eslint-config-next` to `16.4.2` to resolve published security vulnerability advisory.
+- **Agent Upgrade Configuration**: Enabled `experimental.agentUpgrade = 'security'` in [next.config.ts](file:///Users/ronitkadwane/work/demo/personal-os/next.config.ts).
+
 ## [1.5.0] — 2026-10-22
 
 ### Added
