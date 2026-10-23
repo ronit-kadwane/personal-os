@@ -10,8 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Calendly/Cal.com embed modal
-- OG image generation via Next.js metadata API
 - Blog post dynamic routes with MDX
+
+## [1.6.0] — 2026-10-23
+
+### Added
+
+- **Dynamic OpenGraph & Twitter Social Cards**: Implemented high-resolution (1200x630) social share card generator via Next.js `ImageResponse` ([opengraph-image.tsx](file:///Users/ronitkadwane/work/demo/personal-os/src/app/opengraph-image.tsx) and [twitter-image.tsx](file:///Users/ronitkadwane/work/demo/personal-os/src/app/twitter-image.tsx)) featuring custom brand emblem, live availability indicator, and verified metrics.
+- **Automated GitHub Release Workflow**: Added [.github/workflows/release.yml](file:///Users/ronitkadwane/work/demo/personal-os/.github/workflows/release.yml) with Node.js 24 environment for automated semantic release packaging.
 
 ## [1.5.1] — 2026-10-23
 

@@ -53,20 +53,11 @@ export const metadata: Metadata = {
     title: `${personalInfo.name} — ${personalInfo.title}`,
     description: personalInfo.bio,
     siteName: personalInfo.name,
-    images: [
-      {
-        url: '/logo.svg',
-        width: 1200,
-        height: 630,
-        alt: `${personalInfo.name} - Associate Staff Engineer & Full-Stack Architect`,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${personalInfo.name} — ${personalInfo.title}`,
     description: personalInfo.bio,
-    images: ['/logo.svg'],
   },
   icons: {
     icon: [
