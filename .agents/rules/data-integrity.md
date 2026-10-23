@@ -12,7 +12,7 @@
 ## Public Repository Safety Rules
 
 - This repository is intended for **public GitHub release**.
-- **Never commit private residential street addresses** or sensitive personal physical locations into static data files. Use general regional locations (e.g. `Surat, India • Open to US/EU Remote`).
+- **Never commit private residential street addresses** or sensitive personal physical locations into static data files. Use general regional locations (e.g. `Surat, India • Open to Global Remote`).
 - **Never commit private API keys**, secrets, or auth tokens. Use `.env.example` as a template and ensure real credentials reside only in git-ignored `.env.local`.
 
 ## Profile Reference

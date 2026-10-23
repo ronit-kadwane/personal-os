@@ -32,14 +32,16 @@
 
 ## 🛠️ Tech Stack & Tooling
 
-| Component              | Choice                                             | Rationale                                                        |
-| ---------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
-| **Framework**          | Next.js 16 (App Router, Turbopack, React 19)       | Sub-second builds, static rendering, and streaming               |
-| **Styling**            | Tailwind CSS v4 + PostCSS (`@tailwindcss/postcss`) | Next-gen CSS engine, `@theme inline`, and `@custom-variant dark` |
-| **Motion**             | Framer Motion                                      | Smooth, GPU-accelerated micro-interactions                       |
-| **Forms & Validation** | React Hook Form + Zod                              | Type-safe form validation and state management                   |
-| **Theming**            | `next-themes`                                      | Seamless dark-mode default with class-based toggling             |
-| **Icons & Branding**   | Custom SVG Monogram (`Logo.tsx`) + Lucide React    | Copyright-free, crisp vector visuals                             |
+| Component              | Choice                                             | Rationale                                                         |
+| ---------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| **Framework**          | Next.js 16 (App Router, Turbopack, React 19)       | Sub-second builds, static rendering, and streaming                |
+| **Styling**            | Tailwind CSS v4 + PostCSS (`@tailwindcss/postcss`) | Next-gen CSS engine, `@theme inline`, and semantic tokens         |
+| **Theming**            | `next-themes`                                      | 3-way toggle (System default, Light, Dark), flicker-free          |
+| **Locales**            | Standard JSON (`src/locales/en.json`)              | Industry-standard i18n structure with strict TypeScript inference |
+| **Motion**             | Framer Motion                                      | Smooth, GPU-accelerated micro-interactions                        |
+| **Forms & Validation** | React Hook Form + Zod                              | Type-safe form validation and state management                    |
+| **Code Quality**       | ESLint + SonarJS + Prettier                        | Static code analysis, security heuristics, unified formatting     |
+| **Icons & Branding**   | Custom SVG Monogram (`Logo.tsx`) + Lucide React    | Copyright-free, crisp vector visuals                              |
 
 ---
 
@@ -47,21 +49,26 @@
 
 ```
 personal-os/
+├── AGENTS.md                   # Unified agent entry point & reference index
 ├── .agents/                    # Agent rules, workflows & maintenance skills
-│   ├── rules/                  # Project standards and strict data integrity rules
-│   └── skills/                 # Portfolio manager skill cheatsheet
+│   ├── rules/                  # project-standards, data-integrity, versioning-and-docs
+│   └── skills/                 # portfolio-manager, nextjs, tailwind, lucide, typescript
 ├── docs/                       # High-density technical documentation
 │   ├── ARCHITECTURE.md         # Component tree, data flow & security headers
 │   ├── DATA_SCHEMA.md          # TypeScript schemas for all portfolio datasets
-│   ├── STYLING_GUIDE.md        # Tailwind v4, PostCSS, and animation guide
+│   ├── STYLING_GUIDE.md        # Tailwind v4 tokens & color-scheme guide
 │   └── DEPLOYMENT.md           # Production builds & cloud deployment
-├── public/                     # Static assets (logo.svg, favicon.svg, resume.pdf)
-├── scripts/                    # Automation utilities (generate_resume.py)
+├── public/                     # Static assets (logo.svg, favicon.svg, favicon.ico, resume.pdf)
+├── scripts/                    # Automation utilities (generate_resume.py, generate_favicon.py)
 ├── src/
-│   ├── app/                    # Next.js App Router (page, layout, sitemap, robots, manifest)
-│   ├── components/             # Modular UI primitives and page sections
+│   ├── app/                    # Next.js App Router (layout, globals.css, resume, api, sitemap)
+│   ├── components/
+│   │   ├── ui/                 # Atomic UI primitives (ThemeSelector, Logo, Badge, Card, Button)
+│   │   └── sections/           # Layout chrome (Navbar, Footer)
+│   ├── features/               # Modular business features (hero, projects, experience, skills, contact)
+│   ├── locales/                # Type-safe JSON localization (en.json, index.ts)
 │   ├── data/                   # Single source of truth (portfolio.ts)
-│   └── lib/                    # Helpers and utility functions
+│   └── lib/                    # Helpers and utility functions (utils.ts)
 ├── .env.example                # Safe environment variables template
 └── postcss.config.mjs          # PostCSS configuration for Tailwind CSS v4
 ```
@@ -97,16 +104,24 @@ Open [http://localhost:3000](http://localhost:3000) to view the live portfolio.
 ### 4. Build & Verification
 
 ```bash
-npm run lint     # Validate TypeScript & ESLint rules
-npm run build    # Compile production build & generate static pages
+npm run format:check # Verify code formatting with Prettier
+npm run format       # Auto-format all code
+npm run lint         # Validate TypeScript & ESLint SonarJS rules
+npm run build        # Compile production build & generate static pages
 ```
 
-### 5. Re-generate ATS Resume PDF
+### 5. Automation Utilities
 
 To recompile `public/resume.pdf` from source text:
 
 ```bash
 python3 scripts/generate_resume.py
+```
+
+To regenerate multi-resolution `favicon.ico` from `public/favicon.svg`:
+
+```bash
+python3 scripts/generate_favicon.py
 ```
 
 ---

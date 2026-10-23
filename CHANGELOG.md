@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - OG image generation via Next.js metadata API
 - Blog post dynamic routes with MDX
 
+## [1.5.0] — 2026-10-22
+
+### Added
+
+- **Unified Agent Single Source of Truth**: Connected [AGENTS.md](file:///Users/ronitkadwane/work/demo/personal-os/AGENTS.md) as the root entry point linking by reference to `.agents/rules/`, `.agents/skills/`, and `docs/` for token-efficient on-demand loading.
+- **Mandatory Versioning & Docs Protocol**: Codified rule requiring every change to update `CHANGELOG.md`, synchronize `"version"` in `package.json`, and keep `README.md` synchronized whenever out of sync.
+- **Synchronized README & Package Config**: Updated `package.json` version to `1.5.0` and updated `README.md` with complete directory structure, scripts, and theming features.
+
 ## [1.4.0] — 2026-10-21
 
 ### Changed

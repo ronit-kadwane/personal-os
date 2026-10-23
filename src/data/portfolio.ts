@@ -8,10 +8,10 @@ export const personalInfo = {
   title: 'Associate Staff Engineer & Principal Full-Stack Architect',
   email: 'kadwane.ronit@gmail.com',
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9824337236',
-  location: 'Surat, India • Open to US, European & Global Remote',
+  location: 'Surat, India • Open to Global Remote',
   website: 'https://github.com/ronit-kadwane',
   availability: true,
-  availabilityText: 'Available for Architecture & Engineering (US, EU & Worldwide)',
+  availabilityText: 'Available for Architecture & Engineering',
   bio: 'Seasoned software professional with over 10 years of consolidated expertise designing and architecting high-scale applications and orchestrating resilient end-to-end production systems. Specialized in mobile and web platforms across React, React-Native, Node.js, and distributed cloud services for US, European, and global tech leaders.',
   roles: [
     'Associate Staff Engineer',

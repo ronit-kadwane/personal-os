@@ -24,7 +24,7 @@ def build_pdf():
     
     # Title / Header
     stream1.append("/F2 20 Tf\n40 750 Td\n(RONIT KADWANE) Tj\n")
-    stream1.append("/F1 10 Tf\n0 -16 Td\n(Associate Staff Engineer & Full-Stack Architect | Surat, India \\(Open to US/EU Remote\\)) Tj\n")
+    stream1.append("/F1 10 Tf\n0 -16 Td\n(Associate Staff Engineer & Full-Stack Architect | Surat, India \\(Open to Global Remote\\)) Tj\n")
     stream1.append("/F1 9 Tf\n0 -14 Td\n(Email: kadwane.ronit@gmail.com   GitHub: github.com/ronit-kadwane   LinkedIn: linkedin.com/in/ronit-kadwane-981017b8) Tj\n")
     stream1.append("ET\n")
     
