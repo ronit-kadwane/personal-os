@@ -123,5 +123,11 @@
     "professionalExperience": "Professional Experience",
     "featuredProductionSystems": "Featured Production Systems",
     "education": "Education"
+  },
+  "socialCard": {
+    "systemBadge": "Personal OS • Digital Architecture",
+    "experience": "Experience",
+    "productionApps": "Production Apps",
+    "reliability": "Reliability Track"
   }
 }

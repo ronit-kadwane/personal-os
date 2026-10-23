@@ -10,21 +10,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Calendly/Cal.com embed modal
-- OG image generation via Next.js metadata API
 - Blog post dynamic routes with MDX
+
+## [1.6.1] — 2026-10-23
+
+### Changed
+
+- **Dependency Maintenance**: Upgraded core packages to latest compatible semver releases (`react@19.3.1`, `react-dom@19.3.1`, `framer-motion@14.6.0`, `lucide-react@1.61.0`, `@hookform/resolvers@5.9.2`). Preserved stable peer dependencies for Next.js 16 (`eslint@^9`, `typescript@^5`).
+
+### Fixed
+
+- **Release Workflow Hardening**: Removed fork PR closed trigger from `.github/workflows/release.yml` to prevent permission failures, and added strict verification ensuring pushed `v*` tags match `package.json` version and an existing `CHANGELOG.md` release header.
+- **Accessible Release Notes Links**: Replaced local developer `file://` URLs in `CHANGELOG.md` with repository relative links for GitHub Release compatibility.
+
+## [1.6.0] — 2026-10-23
+
+### Added
+
+- **Dynamic OpenGraph & Twitter Social Cards**: Implemented high-resolution (1200x630) social share card generator via Next.js `ImageResponse` ([opengraph-image.tsx](src/app/opengraph-image.tsx) and [twitter-image.tsx](src/app/twitter-image.tsx)) featuring custom brand emblem, live availability indicator, and verified metrics.
+- **Automated GitHub Release Workflow**: Added [.github/workflows/release.yml](.github/workflows/release.yml) with Node.js 24 environment for automated semantic release packaging.
 
 ## [1.5.1] — 2026-10-23
 
 ### Security
 
 - **Next.js Security Upgrade**: Upgraded Next.js from `16.4.0` to `16.4.2` and `eslint-config-next` to `16.4.2` to resolve published security vulnerability advisory.
-- **Agent Upgrade Configuration**: Enabled `experimental.agentUpgrade = 'security'` in [next.config.ts](file:///Users/ronitkadwane/work/demo/personal-os/next.config.ts).
+- **Agent Upgrade Configuration**: Enabled `experimental.agentUpgrade = 'security'` in [next.config.ts](next.config.ts).
 
 ## [1.5.0] — 2026-10-22
 
 ### Added
 
-- **Unified Agent Single Source of Truth**: Connected [AGENTS.md](file:///Users/ronitkadwane/work/demo/personal-os/AGENTS.md) as the root entry point linking by reference to `.agents/rules/`, `.agents/skills/`, and `docs/` for token-efficient on-demand loading.
+- **Unified Agent Single Source of Truth**: Connected [AGENTS.md](AGENTS.md) as the root entry point linking by reference to `.agents/rules/`, `.agents/skills/`, and `docs/` for token-efficient on-demand loading.
 - **Mandatory Versioning & Docs Protocol**: Codified rule requiring every change to update `CHANGELOG.md`, synchronize `"version"` in `package.json`, and keep `README.md` synchronized whenever out of sync.
 - **Synchronized README & Package Config**: Updated `package.json` version to `1.5.0` and updated `README.md` with complete directory structure, scripts, and theming features.
 
@@ -53,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Component & Feature Hierarchy**: Cleanly separated atomic UI (`src/components/ui/`), layout chrome (`src/components/sections/`), and isolated feature modules (`src/features/hero/`, `src/features/projects/`, `src/features/experience/`, `src/features/skills/`, `src/features/contact/`).
 - **Zero Magic Strings / Locale Architecture**: Built type-safe English locale dictionary (`src/locales/en.ts`) and unified helper `t`, mapping 100% of UI strings.
-- **Vibe Coding Footer**: Replaced generic Next.js branding with authentic vibe coding tagline in [Footer.tsx](file:///Users/ronitkadwane/work/demo/personal-os/src/components/sections/Footer.tsx).
+- **Vibe Coding Footer**: Replaced generic Next.js branding with authentic vibe coding tagline in [Footer.tsx](src/components/sections/Footer.tsx).
 - **SonarJS & Security Rules**: Integrated `eslint-plugin-sonarjs`, `prettier`, and `eslint-config-prettier` with automated formatting scripts (`npm run format`).
 
 ---
@@ -69,7 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **Interactive Printable Resume**: Created dedicated `/resume` route featuring print-optimized styling (`@media print`) and in-browser review.
-- **Copyright-Free Monogram Branding**: Generated original geometric "RK" SVG branding ([Logo.tsx](file:///Users/ronitkadwane/work/demo/personal-os/src/components/ui/Logo.tsx), `public/logo.svg`, `public/favicon.svg`); removed default framework graphics (`next.svg`, `vercel.svg`).
+- **Copyright-Free Monogram Branding**: Generated original geometric "RK" SVG branding ([Logo.tsx](src/components/ui/Logo.tsx), `public/logo.svg`, `public/favicon.svg`); removed default framework graphics (`next.svg`, `vercel.svg`).
 - **Comprehensive Enterprise SEO**: Injected structured JSON-LD Schema (`schema.org/Person`), native dynamic sitemap (`src/app/sitemap.ts`), robots policy (`src/app/robots.ts`), and web app manifest (`src/app/manifest.ts`).
 - **Public Repository Hardening**: Abstracted sensitive residential street addresses into general regional availability; created `.env.example` template for zero-leak public releases.
 - **High-Value Client Positioning**: Refined copywriting and keywords targeting high-scale enterprise engineering and US/European clients.

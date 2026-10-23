@@ -1,0 +1,94 @@
+name: Automated GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release & Tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Extract & Validate Release Version
+        id: get_version
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            TAG_VERSION="${GITHUB_REF#refs/tags/v}"
+            if [[ "${TAG_VERSION}" != "${PKG_VERSION}" ]]; then
+              echo "::error::Tag version (v${TAG_VERSION}) does not match package.json version (${PKG_VERSION})"
+              exit 1
+            fi
+            if ! grep -q "## \[${TAG_VERSION}\]" CHANGELOG.md; then
+              echo "::error::CHANGELOG.md does not contain release header for [${TAG_VERSION}]"
+              exit 1
+            fi
+            VERSION="${TAG_VERSION}"
+          else
+            VERSION="${PKG_VERSION}"
+            if ! grep -q "## \[${VERSION}\]" CHANGELOG.md; then
+              echo "::error::CHANGELOG.md does not contain release header for [${VERSION}]"
+              exit 1
+            fi
+          fi
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "Target Release Version: v${VERSION}"
+
+      - name: Extract Release Notes from CHANGELOG.md (In-Memory)
+        id: extract_changelog
+        env:
+          TARGET_VERSION: ${{ env.VERSION }}
+        run: |
+          NOTES=$(node -e "
+            const fs = require('fs');
+            const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
+            const targetVersion = process.env.TARGET_VERSION;
+            const lines = changelog.split('\n');
+            let capturing = false;
+            const notes = [];
+            for (const line of lines) {
+              const isHeader = line.startsWith('## [') || line.startsWith('## ');
+              if (isHeader) {
+                if (capturing) break;
+                if (line.includes('[' + targetVersion + ']')) { capturing = true; continue; }
+              } else if (capturing) {
+                notes.push(line);
+              }
+            }
+            const result = notes.join('\n').trim();
+            console.log(result || 'Release v' + targetVersion);
+          ")
+
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "notes<<$EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          name: Release v${{ env.VERSION }}
+          body: ${{ steps.extract_changelog.outputs.notes }}
+          generate_release_notes: false
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
