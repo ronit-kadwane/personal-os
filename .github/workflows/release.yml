@@ -6,10 +6,6 @@ on:
       - main
     tags:
       - 'v*'
-  pull_request:
-    types: [closed]
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -17,7 +13,6 @@ permissions:
 jobs:
   release:
     name: Create GitHub Release & Tag
-    if: github.event_name != 'pull_request' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -31,13 +26,27 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: Extract Release Version
+      - name: Extract & Validate Release Version
         id: get_version
         run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
-            VERSION="${GITHUB_REF#refs/tags/v}"
+            TAG_VERSION="${GITHUB_REF#refs/tags/v}"
+            if [[ "${TAG_VERSION}" != "${PKG_VERSION}" ]]; then
+              echo "::error::Tag version (v${TAG_VERSION}) does not match package.json version (${PKG_VERSION})"
+              exit 1
+            fi
+            if ! grep -q "## \[${TAG_VERSION}\]" CHANGELOG.md; then
+              echo "::error::CHANGELOG.md does not contain release header for [${TAG_VERSION}]"
+              exit 1
+            fi
+            VERSION="${TAG_VERSION}"
           else
-            VERSION=$(node -p "require('./package.json').version")
+            VERSION="${PKG_VERSION}"
+            if ! grep -q "## \[${VERSION}\]" CHANGELOG.md; then
+              echo "::error::CHANGELOG.md does not contain release header for [${VERSION}]"
+              exit 1
+            fi
           fi
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "Target Release Version: v${VERSION}"
