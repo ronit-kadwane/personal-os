@@ -32,16 +32,17 @@
 
 ## 🛠️ Tech Stack & Tooling
 
-| Component              | Choice                                             | Rationale                                                         |
-| ---------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
-| **Framework**          | Next.js 16 (App Router, Turbopack, React 19)       | Sub-second builds, static rendering, and streaming                |
-| **Styling**            | Tailwind CSS v4 + PostCSS (`@tailwindcss/postcss`) | Next-gen CSS engine, `@theme inline`, and semantic tokens         |
-| **Theming**            | `next-themes`                                      | 3-way toggle (System default, Light, Dark), flicker-free          |
-| **Locales**            | Standard JSON (`src/locales/en.json`)              | Industry-standard i18n structure with strict TypeScript inference |
-| **Motion**             | Framer Motion                                      | Smooth, GPU-accelerated micro-interactions                        |
-| **Forms & Validation** | React Hook Form + Zod                              | Type-safe form validation and state management                    |
-| **Code Quality**       | ESLint + SonarJS + Prettier                        | Static code analysis, security heuristics, unified formatting     |
-| **Icons & Branding**   | Custom SVG Monogram (`Logo.tsx`) + Lucide React    | Copyright-free, crisp vector visuals                              |
+| Component                     | Choice                                             | Rationale                                                         |
+| ----------------------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| **Framework**                 | Next.js 16 (App Router, Turbopack, React 19)       | Sub-second builds, static rendering, and streaming                |
+| **Styling**                   | Tailwind CSS v4 + PostCSS (`@tailwindcss/postcss`) | Next-gen CSS engine, `@theme inline`, and semantic tokens         |
+| **Theming**                   | `next-themes`                                      | 3-way toggle (System default, Light, Dark), flicker-free          |
+| **Locales**                   | Standard JSON (`src/locales/en.json`)              | Industry-standard i18n structure with strict TypeScript inference |
+| **Motion**                    | Framer Motion                                      | Smooth, GPU-accelerated micro-interactions                        |
+| **Forms & Validation**        | React Hook Form + Zod                              | Type-safe form validation and state management                    |
+| **Code Quality**              | ESLint + SonarJS + Prettier                        | Static code analysis, security heuristics, unified formatting     |
+| **Telemetry & Observability** | Vercel Analytics + Speed Insights                  | Real-time visitor analytics and Core Web Vitals performance data  |
+| **Icons & Branding**          | Custom SVG Monogram (`Logo.tsx`) + Lucide React    | Copyright-free, crisp vector visuals                              |
 
 ---
 

@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.7.0] — 2026-10-23
+
+### Added
+
+- **Vercel Analytics & Speed Insights**: Integrated `@vercel/analytics/next` and `@vercel/speed-insights/next` in RootLayout (`src/app/layout.tsx`) for real-time visitor telemetry and Core Web Vitals performance observability.
+
 ## [1.6.1] — 2026-10-23
 
 ### Changed
