@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.8.0] — 2026-10-26
+
+### Added
+
+- **Karm Bungalows Project Showcase**: Integrated live residential society platform ([karm-bungalows.vercel.app](https://karm-bungalows.vercel.app/)) as a flagship featured project in [src/data/portfolio.ts](src/data/portfolio.ts), highlighting 100% autonomous AI agent orchestration, vibe coding workflows, interactive 147-plot SVG vector map, search directory, and 4-language i18n.
+- **AI & Autonomous Development Skillset**: Added dedicated AI Agent Orchestration, Agent Skills & Prompts, Vibe Engineering, and Multi-Agent Architectures category to `skills` in [src/data/portfolio.ts](src/data/portfolio.ts).
+- **ATS Resume Regeneration**: Updated [scripts/generate_resume.py](scripts/generate_resume.py) with independent AI agent projects and autonomous technical arsenal; regenerated [public/resume.pdf](public/resume.pdf).
+- **Interactive Resume Live Link**: Enhanced [src/app/resume/page.tsx](src/app/resume/page.tsx) with direct live project navigation and synchronized locale keys in [src/locales/en.json](src/locales/en.json).
+
 ## [1.7.4] — 2026-10-26
 
 ### Fixed

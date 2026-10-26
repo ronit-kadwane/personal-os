@@ -150,12 +150,26 @@ export default function ResumePage() {
               {projects.slice(0, 4).map((p) => (
                 <div
                   key={p.id}
-                  className="p-4 rounded-xl bg-surface-elevated border border-border print:border-zinc-200 text-xs"
+                  className="p-4 rounded-xl bg-surface-elevated border border-border print:border-zinc-200 text-xs flex flex-col justify-between"
                 >
-                  <div className="font-bold text-foreground print:text-black mb-1">{p.title}</div>
-                  <p className="text-muted print:text-zinc-600 mb-2 leading-relaxed">
-                    {p.description}
-                  </p>
+                  <div>
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <div className="font-bold text-foreground print:text-black">{p.title}</div>
+                      {p.liveUrl && (
+                        <a
+                          href={p.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 hover:underline print:text-zinc-800 shrink-0"
+                        >
+                          {t.resume.liveLink}
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-muted print:text-zinc-600 mb-2 leading-relaxed">
+                      {p.description}
+                    </p>
+                  </div>
                   <div className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400">
                     {p.techStack.join(' • ')}
                   </div>

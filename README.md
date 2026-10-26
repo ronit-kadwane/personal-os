@@ -21,7 +21,7 @@
 ### Key Capabilities
 
 - **Hero & Typewriter**: Real-time role ticker, live availability badge, direct ATS resume download, and quick contact triggers.
-- **Production Projects Catalog**: Real-world systems including **DigiQC** (geo-fenced inspection system), **Chromecast Arcade Game Controllers**, **Enterprise Video Streaming Apps**, and **Financial Profile Evaluation Module**.
+- **Production Projects Catalog**: Real-world systems including **Karm Bungalows** (autonomous AI agent-built society platform with interactive map), **DigiQC** (geo-fenced inspection system), **Chromecast Arcade Game Controllers**, **Enterprise Video Streaming Apps**, and **Financial Profile Evaluation Module**.
 - **Interactive & Printable Resume**: Built-in `/resume` route formatted for on-screen review and `@media print` PDF generation, complemented by pre-compiled `public/resume.pdf`.
 - **Verified Experience Timeline**: Filterable trajectory detailing roles at Nagarro, Maven Agency, Refrens, Logicwind, and Narola Infotech.
 - **Categorized Technical Arsenal**: Proficiency metrics across frontend, backend microservices, distributed cloud architectures, and offline-sync systems.

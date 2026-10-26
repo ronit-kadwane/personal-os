@@ -12,10 +12,11 @@ export const personalInfo = {
   website: 'https://github.com/ronit-kadwane',
   availability: true,
   availabilityText: 'Available for Architecture & Engineering',
-  bio: 'Seasoned software professional with over 10 years of consolidated expertise designing and architecting high-scale applications and orchestrating resilient end-to-end production systems. Specialized in mobile and web platforms across React, React-Native, Node.js, and distributed cloud services for US, European, and global tech leaders.',
+  bio: 'Seasoned software professional with over 10 years of consolidated expertise designing and architecting high-scale applications and orchestrating resilient end-to-end production systems. Active practitioner of autonomous AI agent orchestration and prompt-engineered vibe development to deliver production-grade applications. Specialized in mobile and web platforms across React, React-Native, Node.js, and distributed cloud services for US, European, and global tech leaders.',
   roles: [
     'Associate Staff Engineer',
     'Principal Full-Stack Architect',
+    'Autonomous AI Agent Engineer',
     'React & React-Native Specialist',
     'Node.js & Cloud Systems Lead',
     'Production Systems Architect',
@@ -47,6 +48,33 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: 'karm-bungalows',
+    title: 'Karm Bungalows — Society Platform & Interactive Map',
+    description:
+      'Autonomous AI agent-built society portal with interactive 147-plot map, resident directory, and 4-language i18n',
+    longDescription:
+      'Engineered 100% autonomously via AI agent orchestration and structured skill prompting as an independent personal project. Features a live residential society platform with an interactive SVG plot coordinate map (147 clickable hotspots), multi-parameter search directory (plot, vehicle, profession), digital notice board, and 4 regional languages (English, Hindi, Gujarati, Marathi).',
+    techStack: [
+      'Next.js 16',
+      'React 19',
+      'AI Agent Orchestration',
+      'Interactive SVG Map',
+      'Multilingual i18n',
+      'Tailwind CSS',
+    ],
+    category: 'fullstack',
+    metrics: [
+      '100% AI Agent Built',
+      'Live in Production',
+      '147 Interactive Plots',
+      '4 Regional Languages',
+    ],
+    liveUrl: 'https://karm-bungalows.vercel.app/',
+    featured: true,
+    size: 'large',
+    gradient: 'from-emerald-600 via-teal-600 to-cyan-700',
+  },
   {
     id: 'digiqc',
     title: 'DigiQC — Mobile App, CMS & Server',
@@ -301,6 +329,17 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
+  {
+    category: 'AI & Autonomous Development',
+    icon: '🤖',
+    items: [
+      { name: 'AI Agent Orchestration', level: 'expert' },
+      { name: 'Agent Skills & Prompt Design', level: 'expert' },
+      { name: 'Autonomous Vibe Engineering', level: 'expert' },
+      { name: 'Multi-Agent Architectures', level: 'advanced' },
+      { name: 'LLM Tool Calling & Automation', level: 'expert' },
+    ],
+  },
   {
     category: 'Languages & Frameworks',
     icon: '⚡',
