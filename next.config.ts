@@ -36,11 +36,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cal.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cal.com https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https:",
-              "connect-src 'self' https://api.calendly.com https://cal.com",
+              "connect-src 'self' https://api.calendly.com https://cal.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
               'frame-src https://cal.com https://calendly.com',
             ].join('; '),
           },

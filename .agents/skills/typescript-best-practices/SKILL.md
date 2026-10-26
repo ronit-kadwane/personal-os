@@ -28,5 +28,5 @@ Guidelines for writing type-safe, maintainable, and robust TypeScript code.
 
 ## 4. Centralized Type Definitions
 
-- Keep domain entities in shared type files (e.g., `src/types/society.ts`).
+- Keep domain entities in shared type locations (`src/data/portfolio.ts` or `docs/DATA_SCHEMA.md`).
 - Avoid inline duplication of complex prop or response types across components.

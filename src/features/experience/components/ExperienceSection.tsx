@@ -163,7 +163,7 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="py-24 px-6 bg-surface-elevated/40 text-foreground transition-colors duration-200"
+      className="py-24 px-6 bg-surface-elevated/40 text-foreground transition-colors duration-200 content-visibility-auto"
     >
       <div className="max-w-3xl mx-auto">
         {/* Header */}

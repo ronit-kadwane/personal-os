@@ -8,18 +8,12 @@ import { Button } from '@/components/ui/Button';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: 'easeOut' as const },
-});
-
 export function HeroSection() {
+  const roles = personalInfo.roles;
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState('');
+  const [displayed, setDisplayed] = useState(roles[0]);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const roles = personalInfo.roles;
   const currentRole = roles[roleIndex];
 
   useEffect(() => {
@@ -28,7 +22,7 @@ export function HeroSection() {
     if (!isDeleting && displayed.length < currentRole.length) {
       timeout = setTimeout(() => setDisplayed(currentRole.slice(0, displayed.length + 1)), 60);
     } else if (!isDeleting && displayed.length === currentRole.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2200);
+      timeout = setTimeout(() => setIsDeleting(true), 2400);
     } else if (isDeleting && displayed.length > 0) {
       timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
     } else if (isDeleting && displayed.length === 0) {
@@ -54,11 +48,11 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden bg-background text-foreground transition-colors duration-200"
     >
-      {/* Background ambient glows */}
+      {/* Background ambient glows (GPU composited float, zero layout shift) */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-indigo-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-violet-500/8 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/6 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-indigo-500/10 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-violet-500/8 rounded-full blur-3xl animate-float-reverse" />
+        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/6 rounded-full blur-3xl animate-float-slow" />
         {/* Subtle grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
@@ -72,7 +66,7 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Availability badge */}
-        <motion.div {...fadeUp(0.1)} className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8">
           <span
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-400 text-sm font-medium shadow-sm"
             role="status"
@@ -84,13 +78,10 @@ export function HeroSection() {
             </span>
             {personalInfo.availabilityText}
           </span>
-        </motion.div>
+        </div>
 
         {/* Headline */}
-        <motion.h1
-          {...fadeUp(0.2)}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08] mb-4"
-        >
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08] mb-4">
           {t.hero.headlinePrefix}{' '}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent">
@@ -99,34 +90,27 @@ export function HeroSection() {
           </span>
           <br />
           {t.hero.headlineSuffix}
-        </motion.h1>
+        </h1>
 
         {/* Role ticker */}
-        <motion.div
-          {...fadeUp(0.3)}
-          className="flex justify-center items-center gap-2 mb-6 h-8"
+        <div
+          className="flex justify-center items-center gap-2 mb-6 min-h-[2rem]"
           aria-label={`Current role: ${currentRole}`}
         >
           <Sparkles size={16} className="text-indigo-500 flex-shrink-0" />
-          <span className="font-mono text-lg text-muted">
+          <span className="font-mono text-base sm:text-lg text-muted">
             <span className="text-indigo-600 dark:text-indigo-400 font-semibold">{displayed}</span>
             <span className="animate-pulse text-indigo-500">|</span>
           </span>
-        </motion.div>
+        </div>
 
         {/* Sub-headline */}
-        <motion.p
-          {...fadeUp(0.4)}
-          className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed mb-10"
-        >
+        <p className="text-lg sm:text-xl text-muted max-w-3xl mx-auto leading-relaxed mb-10">
           {personalInfo.bio}
-        </motion.p>
+        </p>
 
         {/* CTA Buttons */}
-        <motion.div
-          {...fadeUp(0.5)}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14">
           <Button
             id="hero-explore-work"
             size="lg"
@@ -160,10 +144,10 @@ export function HeroSection() {
             <MessageSquare size={16} />
             {t.common.getInTouch}
           </Button>
-        </motion.div>
+        </div>
 
         {/* Social Links */}
-        <motion.div {...fadeUp(0.6)} className="flex items-center justify-center gap-4 mb-16">
+        <div className="flex items-center justify-center gap-4 mb-16">
           {[
             { icon: GithubIcon, href: personalInfo.socials.github, label: 'GitHub' },
             { icon: LinkedinIcon, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
@@ -184,20 +168,17 @@ export function HeroSection() {
               <Icon size={18} />
             </a>
           ))}
-        </motion.div>
+        </div>
 
         {/* Metrics row */}
-        <motion.div
-          {...fadeUp(0.7)}
-          className="flex flex-wrap items-center justify-center gap-8 sm:gap-16"
-        >
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16">
           {t.hero.metrics.map(({ value, label }) => (
             <div key={label} className="text-center">
               <div className="text-2xl font-bold text-foreground">{value}</div>
               <div className="text-xs text-muted mt-0.5">{label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
