@@ -7,31 +7,35 @@ import { personalInfo } from '@/data/portfolio';
 import './globals.css';
 
 /* ====================================================
-   Google Fonts
+   Google Fonts (Variable Fonts for Zero-Flicker Preload)
    ==================================================== */
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500'],
 });
 
 /* ====================================================
    SEO Metadata (Optimized for High-Payscale US & EU Enterprise)
    ==================================================== */
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ronit-kadwane.vercel.app';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${personalInfo.name} — ${personalInfo.title}`,
     template: `%s | ${personalInfo.name}`,
   },
   description: personalInfo.bio,
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     personalInfo.name,
     'Associate Staff Engineer',
@@ -46,12 +50,12 @@ export const metadata: Metadata = {
     'MongoDB Scalability Expert',
     'Technical Leadership & Mentorship',
   ],
-  authors: [{ name: personalInfo.name, url: personalInfo.website }],
+  authors: [{ name: personalInfo.name, url: siteUrl }],
   creator: personalInfo.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: personalInfo.website,
+    url: siteUrl,
     title: `${personalInfo.name} — ${personalInfo.title}`,
     description: personalInfo.bio,
     siteName: personalInfo.name,
@@ -80,7 +84,6 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  metadataBase: new URL(personalInfo.website),
 };
 
 export const viewport: Viewport = {
@@ -97,7 +100,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: personalInfo.name,
   jobTitle: personalInfo.title,
-  url: personalInfo.website,
+  url: siteUrl,
   sameAs: [
     personalInfo.socials.github,
     personalInfo.socials.linkedin,

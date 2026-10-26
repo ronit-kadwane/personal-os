@@ -53,7 +53,7 @@ personal-os/
 ├── AGENTS.md                   # Unified agent entry point & reference index
 ├── .agents/                    # Agent rules, workflows & maintenance skills
 │   ├── rules/                  # project-standards, data-integrity, versioning-and-docs
-│   └── skills/                 # portfolio-manager, nextjs, tailwind, lucide, typescript
+│   └── skills/                 # portfolio-manager, nextjs, rendering-perf, tailwind, lucide, typescript
 ├── docs/                       # High-density technical documentation
 │   ├── ARCHITECTURE.md         # Component tree, data flow & security headers
 │   ├── DATA_SCHEMA.md          # TypeScript schemas for all portfolio datasets

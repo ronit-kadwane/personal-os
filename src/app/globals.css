@@ -139,3 +139,60 @@ body {
 ::-webkit-scrollbar-thumb {
   transition: none !important;
 }
+
+/* ====================================================
+   CORE WEB VITALS: Offscreen Section Rendering Optimization
+   Skips rendering of offscreen DOM trees on initial paint,
+   dramatically improving mobile FCP, LCP, and TBT.
+   ==================================================== */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+/* ====================================================
+   PERFORMANCE-SAFE SHOWCASE ANIMATIONS
+   Compositor-only transforms (translate3d, opacity)
+   Zero layout recalculations, Zero paint jank, Zero CLS
+   ==================================================== */
+@keyframes ambientFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes ambientFloatReverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+.animate-float-slow {
+  animation: ambientFloat 8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: ambientFloatReverse 10s ease-in-out infinite;
+}
+
+/* ====================================================
+   ACCESSIBILITY: Respect Reduced Motion
+   ==================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

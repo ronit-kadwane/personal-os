@@ -23,7 +23,7 @@ personal-os/
 │   │   ├── skills/             # Skills matrix, proficiency bars, legend
 │   │   └── contact/            # Zod contact form, direct channels, socials
 │   ├── locales/                # Internationalization & zero-magic-string dictionaries
-│   │   ├── en.ts               # Complete typed English UI dictionary
+│   │   ├── en.json             # Canonical typed JSON English UI dictionary
 │   │   └── index.ts            # Master locale export `t`
 │   ├── data/
 │   │   └── portfolio.ts        # Single source of truth for verified career data

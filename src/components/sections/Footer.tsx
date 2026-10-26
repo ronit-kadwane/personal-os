@@ -1,5 +1,3 @@
-'use client';
-
 import { Logo } from '@/components/ui/Logo';
 import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/BrandIcons';
 import { personalInfo } from '@/data/portfolio';

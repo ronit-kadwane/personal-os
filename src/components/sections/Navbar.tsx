@@ -36,10 +36,7 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+      <header
         className={cn(
           'fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-2xl transition-all duration-300',
           scrolled
@@ -113,7 +110,7 @@ export function Navbar() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       {/* Mobile Drawer */}
       <AnimatePresence>

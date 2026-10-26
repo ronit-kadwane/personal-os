@@ -141,7 +141,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-24 px-6 bg-background text-foreground transition-colors duration-200"
+      className="py-24 px-6 bg-background text-foreground transition-colors duration-200 content-visibility-auto"
     >
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}

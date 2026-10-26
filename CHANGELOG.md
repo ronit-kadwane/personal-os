@@ -12,6 +12,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.7.4] — 2026-10-26
+
+### Fixed
+
+- **Public Repository Path Portability**: Converted all machine-local `file:///Users/ronitkadwane/...` absolute URLs in [AGENTS.md](AGENTS.md) to repository-relative markdown paths (`.agents/...`, `docs/...`). All references now navigate correctly across GitHub, external clones, and any agent environment.
+
+## [1.7.3] — 2026-10-26
+
+### Added
+
+- **Showcase Ambient Animations**: Implemented GPU-composited ambient float keyframes (`animate-float-slow`, `animate-float-reverse`) in `src/app/globals.css` applied to Hero background orbs, adding dynamic visual depth with zero layout shift and zero impact on LCP/FCP.
+- **Accessibility Motion Query**: Added `@media (prefers-reduced-motion: reduce)` in `src/app/globals.css` ensuring complete compliance with motion accessibility standards.
+
+### Changed
+
+- **Agent Routing & Token Optimization**: Consolidated master routing index in [AGENTS.md](AGENTS.md) to link `motion` and all specialized skills on-demand, and cleaned central schema references in [.agents/skills/typescript-best-practices/SKILL.md](.agents/skills/typescript-best-practices/SKILL.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+- **SEO & Canonical URL Integrity**: Aligned `metadataBase`, OpenGraph URLs, canonical alternates, and JSON-LD schema in `src/app/layout.tsx` with canonical site domain.
+
+## [1.7.2] — 2026-10-26
+
+### Added
+
+- **Next.js Rendering Performance Skill**: Created token-optimized specialized skill [.agents/skills/nextjs-rendering-performance/SKILL.md](.agents/skills/nextjs-rendering-performance/SKILL.md) covering Server/Client component boundaries, sub-second LCP/FCP critical paths, zero-CLS layout stability, responsive INP handling, Framer Motion optimization, and Core Web Vitals thresholds. Linked by reference in [AGENTS.md](AGENTS.md).
+
+## [1.7.1] — 2026-10-24
+
+### Fixed
+
+- **Core Web Vitals & Real Experience Score (RES) Optimization**:
+  - **LCP & FCP Accelerated**: Removed client-side initial `opacity: 0` delay animations on critical above-the-fold Hero elements (`h1`, availability status, bio, and CTAs) in `src/features/hero/components/HeroSection.tsx`, allowing instant browser first-paint rendering.
+  - **Zero Layout Shift (CLS)**: Initialized Hero role ticker with verified default role (`personalInfo.roles[0]`) and reserved minimum line height to eliminate font wrapping reflows upon hydration.
+  - **Navbar Layout Stability**: Removed offscreen initial translation (`y: -80`) in `src/components/sections/Navbar.tsx` for immediate in-place rendering.
+  - **Font Payload Reduction**: Switched Google Fonts (`Inter`, `JetBrains_Mono`) to unified variable font bundles without multi-weight slicing.
+  - **Offscreen Section Rendering**: Added CSS `content-visibility: auto` with intrinsic sizing across below-the-fold sections (`projects`, `experience`, `skills`, `contact`) to drastically reduce initial DOM layout time on mobile devices.
+  - **Client JS Reduction**: Converted `Footer.tsx` from Client Component to React Server Component (RSC).
+  - **Telemetry CSP Alignment**: Allowed Vercel Analytics and Speed Insights script domains and ingestion beacons in `Content-Security-Policy` (`next.config.ts`).
+
 ## [1.7.0] — 2026-10-23
 
 ### Added
