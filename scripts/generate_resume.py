@@ -36,11 +36,12 @@ def build_pdf():
     stream1.append("/F2 11 Tf\n40 688 Td\n(PROFESSIONAL SUMMARY) Tj\n")
     stream1.append("/F1 9 Tf\n0 -14 Td\n(Seasoned software professional with over 10 years of consolidated expertise designing and architecting applications,) Tj\n")
     stream1.append("0 -12 Td\n(and orchestrating end-to-end production systems. Specialized in mobile and web development across React, React-Native,) Tj\n")
-    stream1.append("0 -12 Td\n(Node.js, and cloud platforms. Adept at crafting scalable, resilient architectures for global startups and enterprises.) Tj\n")
+    stream1.append("0 -12 Td\n(Node.js, and cloud platforms. Active practitioner of autonomous AI agent orchestration and prompt-engineered vibe development.) Tj\n")
 
     # Technical Skills
     stream1.append("0 -20 Td\n/F2 11 Tf\n(TECHNICAL ARSENAL) Tj\n")
     stream1.append("/F1 9 Tf\n0 -14 Td\n(Languages & Frameworks: JavaScript \\(ES6+\\), ReactJS, NextJS, React-Native, NodeJS, Android Native, HTML5, CSS3) Tj\n")
+    stream1.append("0 -13 Td\n(AI & Autonomous Systems: Autonomous AI Agent Orchestration, Vibe Coding, Prompt & Skill Engineering, Multi-Agent Systems) Tj\n")
     stream1.append("0 -13 Td\n(Backend & Cloud: ExpressJS, FeathersJS, LoopBack, AWS Lambda, Google Cloud Functions, Firebase, MongoDB) Tj\n")
     stream1.append("0 -13 Td\n(Architecture & Engineering: System Architecture, Database Schema Design, Offline-First Sync, REST APIs, Scalability) Tj\n")
     stream1.append("0 -13 Td\n(Tooling & Leadership: Technical Leadership, Team Mentorship, Agile/Jira, Git, Chromecast SDK, Node-RED) Tj\n")
@@ -95,12 +96,13 @@ def build_pdf():
     stream2.append("/F1 9 Tf\n0 -13 Td\n(- Developed cost calculation calculator mobile application for embroidery machines using native Android.) Tj\n")
     stream2.append("0 -12 Td\n(- Engineered UI modules and payment integration for native Android e-commerce application.) Tj\n")
 
-    # Key Production Highlights
-    stream2.append("0 -22 Td\n/F2 11 Tf\n(FEATURED PRODUCTION HIGHLIGHTS) Tj\n")
-    stream2.append("/F1 9 Tf\n0 -14 Td\n(- DigiQC \\(React-Native, FeathersJS, Node.js, MongoDB\\): Enterprise quality checks for architects with location radius lock.) Tj\n")
+    # Key Production Highlights & Independent Work
+    stream2.append("0 -22 Td\n/F2 11 Tf\n(FEATURED PRODUCTION HIGHLIGHTS & INDEPENDENT WORK) Tj\n")
+    stream2.append("/F1 9 Tf\n0 -14 Td\n(- Karm Bungalows \\(Independent AI Agent Project | Live: karm-bungalows.vercel.app\\): Society platform built 100%) Tj\n")
+    stream2.append("0 -12 Td\n(  via AI agent orchestration; features 147-plot interactive SVG vector map, search directory, and 4-language i18n.) Tj\n")
+    stream2.append("0 -12 Td\n(- DigiQC \\(React-Native, FeathersJS, Node.js, MongoDB\\): Enterprise quality checks for architects with location radius lock.) Tj\n")
     stream2.append("0 -12 Td\n(- Chromecast Platform \\(React-Native, Chromecast SDK\\): Real-time interactive controllers with dynamic layout rendering.) Tj\n")
     stream2.append("0 -12 Td\n(- Financial Evaluation Module \\(React, React-Native, Node.js, MongoDB\\): Scalable financial insights engine at Nagarro.) Tj\n")
-    stream2.append("0 -12 Td\n(- Contactbook \\(React, MobX, FeathersJS, MongoDB\\): Automated collaborative contact directory for G Suite teams.) Tj\n")
 
     # Education
     stream2.append("0 -22 Td\n/F2 11 Tf\n(EDUCATION) Tj\n")
