@@ -51,10 +51,13 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
           'relative overflow-hidden flex-shrink-0',
           project.size === 'large' ? 'h-48 md:h-64' : 'h-36',
         )}
-        aria-hidden="true"
       >
-        <div className={cn('absolute inset-0 bg-gradient-to-br opacity-90', project.gradient)} />
         <div
+          aria-hidden="true"
+          className={cn('absolute inset-0 bg-gradient-to-br opacity-90', project.gradient)}
+        />
+        <div
+          aria-hidden="true"
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:

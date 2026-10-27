@@ -7,6 +7,7 @@ import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/Bra
 import { Tooltip, toast } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
+import { copyTextToClipboard } from '@/lib/utils';
 
 /**
  * Site-wide footer displaying identity monogram, copyright metadata, verified social profiles,
@@ -19,13 +20,13 @@ export function Footer() {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(personalInfo.email);
+    const success = await copyTextToClipboard(personalInfo.email);
+    if (success) {
       setCopiedEmail(true);
       toast(t.common.emailCopied);
       setTimeout(() => setCopiedEmail(false), 2000);
-    } catch {
-      // Fallback
+    } else {
+      toast(t.common.emailCopyFailed);
     }
   };
 
@@ -43,11 +44,7 @@ export function Footer() {
           </div>
 
           {/* Socials & Contact Actions */}
-          <div
-            className="flex items-center gap-2.5"
-            role="list"
-            aria-label="Social and contact links"
-          >
+          <div className="flex items-center gap-2.5" aria-label="Social and contact links">
             {[
               {
                 icon: GithubIcon,
@@ -74,7 +71,6 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  role="listitem"
                   className="w-9 h-9 rounded-xl border border-border flex items-center justify-center text-muted hover:text-foreground hover:bg-surface-elevated transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   <Icon size={14} />
@@ -87,7 +83,6 @@ export function Footer() {
               <a
                 href={`mailto:${personalInfo.email}`}
                 aria-label={t.tooltips.sendDirectEmail}
-                role="listitem"
                 className="w-9 h-9 rounded-xl border border-border flex items-center justify-center text-muted hover:text-foreground hover:bg-surface-elevated transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <Mail size={14} />
@@ -99,7 +94,6 @@ export function Footer() {
               <button
                 onClick={handleCopyEmail}
                 aria-label={t.tooltips.copyEmailAddress}
-                role="listitem"
                 className="w-9 h-9 rounded-xl border border-border flex items-center justify-center text-muted hover:text-foreground hover:bg-surface-elevated transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 {copiedEmail ? (

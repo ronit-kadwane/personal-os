@@ -10,6 +10,7 @@
     "scrollToTop": "Scroll to top",
     "copyEmail": "Copy email address",
     "emailCopied": "Email copied to clipboard!",
+    "emailCopyFailed": "Failed to copy email to clipboard",
     "copied": "Copied!",
     "loading": "Loading...",
     "theme": "Theme",

@@ -20,7 +20,7 @@ import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/Bra
 import { Badge, Tooltip, toast } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
-import { cn } from '@/lib/utils';
+import { cn, copyTextToClipboard } from '@/lib/utils';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(80),
@@ -46,13 +46,13 @@ export function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(personalInfo.email);
+    const success = await copyTextToClipboard(personalInfo.email);
+    if (success) {
       setCopiedEmail(true);
       toast(t.common.emailCopied);
       setTimeout(() => setCopiedEmail(false), 2000);
-    } catch {
-      // Fallback
+    } else {
+      toast(t.common.emailCopyFailed);
     }
   };
 

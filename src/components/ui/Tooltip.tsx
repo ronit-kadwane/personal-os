@@ -1,6 +1,15 @@
 'use client';
 
-import { useState, useRef, useId, useCallback, ReactNode, ReactElement } from 'react';
+import {
+  useState,
+  useRef,
+  useId,
+  useCallback,
+  cloneElement,
+  isValidElement,
+  ReactNode,
+  ReactElement,
+} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -56,6 +65,20 @@ export function Tooltip({
     setIsVisible(false);
   }, []);
 
+  const childAriaDescribedBy = isValidElement(children)
+    ? (children.props as { 'aria-describedby'?: string })['aria-describedby']
+    : undefined;
+
+  const activeAriaDescribedBy = isVisible
+    ? [childAriaDescribedBy, tooltipId].filter(Boolean).join(' ')
+    : childAriaDescribedBy;
+
+  const trigger = isValidElement(children)
+    ? cloneElement(children as ReactElement<{ 'aria-describedby'?: string }>, {
+        'aria-describedby': activeAriaDescribedBy,
+      })
+    : children;
+
   return (
     <span
       className="relative inline-flex"
@@ -65,7 +88,7 @@ export function Tooltip({
       onBlur={handleHide}
       onTouchStart={handleHide}
     >
-      {children}
+      {trigger}
       <AnimatePresence>
         {isVisible && content && (
           <motion.span

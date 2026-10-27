@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { t } from '@/locales';
+import { cn } from '@/lib/utils';
 
 /**
  * Floating scroll-to-top button featuring an integrated circular SVG scroll progress ring.
@@ -14,6 +15,7 @@ import { t } from '@/locales';
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
@@ -36,7 +38,10 @@ export function ScrollToTop() {
   }, [handleScroll]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'instant' : 'smooth' });
   };
 
   const radius = 18;
@@ -47,17 +52,17 @@ export function ScrollToTop() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 10 }}
-          transition={{ duration: 0.2 }}
+          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
+          animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
+          transition={{ duration: shouldReduceMotion ? 0.05 : 0.2 }}
           className="fixed bottom-6 right-6 z-40"
         >
           <Tooltip content={t.common.scrollToTop} position="left">
             <button
               onClick={scrollToTop}
               aria-label={t.common.scrollToTop}
-              className="relative w-11 h-11 rounded-full flex items-center justify-center bg-surface/90 backdrop-blur-md border border-border text-foreground hover:bg-surface-elevated hover:text-indigo-500 transition-all shadow-lg shadow-black/10 dark:shadow-black/40 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="relative w-11 h-11 rounded-full flex items-center justify-center bg-surface/90 backdrop-blur-md border border-border text-foreground hover:bg-surface-elevated hover:text-indigo-500 transition-all shadow-lg shadow-black/10 dark:shadow-black/40 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 group"
             >
               {/* SVG circular progress ring */}
               <svg
@@ -76,7 +81,10 @@ export function ScrollToTop() {
                   cx="22"
                   cy="22"
                   r={radius}
-                  className="stroke-indigo-500 transition-[stroke-dashoffset] duration-150 ease-out"
+                  className={cn(
+                    'stroke-indigo-500',
+                    !shouldReduceMotion && 'transition-[stroke-dashoffset] duration-150 ease-out',
+                  )}
                   strokeWidth="2.5"
                   fill="none"
                   strokeDasharray={circumference}
@@ -87,7 +95,10 @@ export function ScrollToTop() {
 
               <ChevronUp
                 size={18}
-                className="relative z-10 transition-transform group-hover:-translate-y-0.5"
+                className={cn(
+                  'relative z-10',
+                  !shouldReduceMotion && 'transition-transform group-hover:-translate-y-0.5',
+                )}
               />
             </button>
           </Tooltip>

@@ -7,6 +7,7 @@ import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/Bra
 import { Button, Tooltip, toast } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
+import { copyTextToClipboard } from '@/lib/utils';
 
 /**
  * Hero showcase section with animated role typewriter, availability badge,
@@ -44,13 +45,13 @@ export function HeroSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(personalInfo.email);
+    const success = await copyTextToClipboard(personalInfo.email);
+    if (success) {
       setCopiedEmail(true);
       toast(t.common.emailCopied);
       setTimeout(() => setCopiedEmail(false), 2000);
-    } catch {
-      // Fallback
+    } else {
+      toast(t.common.emailCopyFailed);
     }
   };
 
