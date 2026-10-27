@@ -9,6 +9,12 @@ import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 import { cn } from '@/lib/utils';
 
+/**
+ * Floating responsive navigation header with scroll elevation, section smooth scrolling,
+ * brand logo, and 3-way theme selector.
+ *
+ * @returns Navbar component
+ */
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);

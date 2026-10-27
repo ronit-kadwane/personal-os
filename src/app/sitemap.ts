@@ -1,5 +1,10 @@
 import type { MetadataRoute } from 'next';
 
+/**
+ * Generates dynamic sitemap.xml indexing all public canonical routes with update frequencies.
+ *
+ * @returns Next.js Sitemap metadata collection
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ronit-kadwane.vercel.app';
   const lastModified = new Date();

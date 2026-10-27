@@ -9,6 +9,11 @@ export const size = {
 };
 export const contentType = 'image/png';
 
+/**
+ * Dynamically generates 1200x630 OpenGraph preview card with avatar initials, metrics, and branding.
+ *
+ * @returns Next.js ImageResponse rendering the OpenGraph social card
+ */
 export default function Image() {
   const topSkills = skills.flatMap((s) => s.items).slice(0, 4);
   const initials = personalInfo.name

@@ -30,6 +30,12 @@ interface TimelineItemProps {
   isLast: boolean;
 }
 
+/**
+ * Timeline entry item rendering career role details, company, duration, and expandable highlights.
+ *
+ * @param props - TimelineItemProps containing experience model, index, and border indicator
+ * @returns Animated timeline node element
+ */
 function TimelineItem({ item, index, isLast }: TimelineItemProps) {
   const [expanded, setExpanded] = useState(false);
   const Icon = typeIcon[item.type];
@@ -144,6 +150,11 @@ function TimelineItem({ item, index, isLast }: TimelineItemProps) {
   );
 }
 
+/**
+ * Filterable career journey timeline showcasing verified engineering tenures and education.
+ *
+ * @returns Career experience timeline section
+ */
 export function ExperienceSection() {
   const [filter, setFilter] = useState<Filter>('all');
 

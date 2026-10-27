@@ -12,6 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.9.0] — 2026-10-27
+
+### Added
+
+- **Comprehensive Docstring Coverage Standard**: Added rule section 6 to [.agents/rules/project-standards.md](.agents/rules/project-standards.md) mandating >= 80% docstring coverage for all exported functions, components, API route handlers, and utility scripts.
+- **Project-Wide JSDoc & Python Docstrings**: Documented all functions, route handlers, and components across the codebase (`src/app/`, `src/components/`, `src/features/`, and `scripts/`), achieving 100% docstring coverage on PR diffs.
+
+### Fixed
+
+- **Accurate Documentation Accuracy**: Refined `ContactSection` JSDoc to specify contact form submission rather than telemetry dispatch, removed unsupported theme-toggling claim from `ResumePage` JSDoc, and added JSDoc documentation to the exported `GET` route handler in `src/app/api/contact/route.ts`.
+- **Resume Generator Modularization**: Refactored `build_pdf` in `scripts/generate_resume.py` into focused helper functions (`build_page_one_stream`, `build_page_two_stream`, `assemble_pdf`), reducing cyclomatic complexity and satisfying statement count limits (Ruff PLR0915).
+
 ## [1.8.0] — 2026-10-26
 
 ### Added

@@ -8,6 +8,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
+/**
+ * Atomic interactive button component with variant styling, size scaling, and accessibility states.
+ *
+ * @param props - ButtonProps extending native HTML button attributes
+ * @returns Styled button element
+ */
 export function Button({
   variant = 'primary',
   size = 'md',

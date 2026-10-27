@@ -8,6 +8,10 @@ import subprocess
 from PIL import Image
 
 def main():
+    """
+    Generate multi-resolution favicon.ico from public/favicon.svg.
+    Rasterizes vector SVG into 16, 32, 48, and 64px PNGs, then packages them into ICO format.
+    """
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     svg_path = os.path.join(root_dir, 'public', 'favicon.svg')
     public_dir = os.path.join(root_dir, 'public')

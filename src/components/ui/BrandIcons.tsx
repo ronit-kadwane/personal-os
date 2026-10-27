@@ -3,10 +3,17 @@ import type { SVGProps } from 'react';
 
 type IconProps = SVGProps<SVGSVGElement> & { size?: number | string };
 
+/** Normalize icon dimension with 16px fallback */
 function toSize(s?: number | string) {
   return s ?? 16;
 }
 
+/**
+ * Render GitHub brand glyph.
+ *
+ * @param props - IconProps with size and SVG attributes
+ * @returns Vector icon element
+ */
 export function GithubIcon({ size, ...props }: IconProps) {
   const s = toSize(size);
   return (
@@ -16,6 +23,12 @@ export function GithubIcon({ size, ...props }: IconProps) {
   );
 }
 
+/**
+ * Render LinkedIn brand glyph.
+ *
+ * @param props - IconProps with size and SVG attributes
+ * @returns Vector icon element
+ */
 export function LinkedinIcon({ size, ...props }: IconProps) {
   const s = toSize(size);
   return (
@@ -25,6 +38,12 @@ export function LinkedinIcon({ size, ...props }: IconProps) {
   );
 }
 
+/**
+ * Render Twitter/X brand glyph.
+ *
+ * @param props - IconProps with size and SVG attributes
+ * @returns Vector icon element
+ */
 export function TwitterXIcon({ size, ...props }: IconProps) {
   const s = toSize(size);
   return (
@@ -34,6 +53,12 @@ export function TwitterXIcon({ size, ...props }: IconProps) {
   );
 }
 
+/**
+ * Render StackOverflow brand glyph.
+ *
+ * @param props - IconProps with size and SVG attributes
+ * @returns Vector icon element
+ */
 export function StackOverflowIcon({ size, ...props }: IconProps) {
   const s = toSize(size);
   return (

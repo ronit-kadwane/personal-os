@@ -6,19 +6,21 @@ Does not require third-party libraries.
 import sys
 
 def escape_pdf(text):
+    """
+    Escape special characters for raw PDF literal text string syntax.
+
+    :param text: Raw input string
+    :return: Escaped string safe for PDF text stream insertion
+    """
     return text.replace('\\', '\\\\').replace('(', '\\(').replace(')', '\\)')
 
-def build_pdf():
-    # Page setup: Standard US Letter (612 x 792 pt)
-    # Margins: 40pt left/right, 40pt top/bottom
-    
-    # We will build 2 pages:
-    # Page 1: Header, Summary, Skills, Nagarro, Maven, Refrens
-    # Page 2: Logicwind, Narola, Projects highlights, Education
+def build_page_one_stream():
+    """
+    Construct PDF literal text stream for Page 1.
+    Covers header, summary, technical arsenal, and experience at Nagarro, Maven, and Refrens.
 
-    pages_streams = []
-
-    # --- PAGE 1 ---
+    :return: Stream string for page 1
+    """
     stream1 = []
     stream1.append("BT\n")
     
@@ -70,9 +72,15 @@ def build_pdf():
 
     stream1.append("0 -30 Td\n/F1 8 Tf\n(Page 1 of 2  -  Ronit Kadwane Resume) Tj\n")
     stream1.append("ET\n")
-    pages_streams.append("".join(stream1))
+    return "".join(stream1)
 
-    # --- PAGE 2 ---
+def build_page_two_stream():
+    """
+    Construct PDF literal text stream for Page 2.
+    Covers Logicwind, Narola, Featured Highlights & Independent Work, and Education.
+
+    :return: Stream string for page 2
+    """
     stream2 = []
     stream2.append("BT\n")
     stream2.append("/F2 14 Tf\n40 750 Td\n(RONIT KADWANE - RESUME \\(Continued\\)) Tj\n")
@@ -114,20 +122,15 @@ def build_pdf():
     # Footer
     stream2.append("0 -40 Td\n/F1 8 Tf\n(Page 2 of 2  -  Ronit Kadwane Resume  |  Verified Portfolio: github.com/ronit-kadwane) Tj\n")
     stream2.append("ET\n")
-    pages_streams.append("".join(stream2))
+    return "".join(stream2)
 
-    # Assemble PDF Objects
-    objects = []
-    
-    # 1: Catalog
-    # 2: Pages
-    # 3: Page 1
-    # 4: Page 2
-    # 5: Font F1 (Helvetica)
-    # 6: Font F2 (Helvetica-Bold)
-    # 7: Contents Page 1
-    # 8: Contents Page 2
+def assemble_pdf(pages_streams):
+    """
+    Assemble standard PDF 1.4 catalog, page tree, font descriptors, and cross-reference table.
 
+    :param pages_streams: List of page stream strings
+    :return: Serialized bytearray representing valid PDF file
+    """
     c1 = pages_streams[0].encode('latin1')
     c2 = pages_streams[1].encode('latin1')
 
@@ -157,10 +160,20 @@ def build_pdf():
         out.extend(f"{offset:010d} 00000 n \n".encode('ascii'))
 
     out.extend(f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R >>\nstartxref\n{startxref}\n%%EOF\n".encode('ascii'))
+    return out
+
+def build_pdf():
+    """
+    Build and write the 2-page ATS-compliant PDF resume (public/resume.pdf).
+    Orchestrates page stream generation, object packaging, and file emission.
+    """
+    p1 = build_page_one_stream()
+    p2 = build_page_two_stream()
+    pdf_bytes = assemble_pdf([p1, p2])
 
     with open("public/resume.pdf", "wb") as f:
-        f.write(out)
-    print("public/resume.pdf generated successfully:", len(out), "bytes")
+        f.write(pdf_bytes)
+    print("public/resume.pdf generated successfully:", len(pdf_bytes), "bytes")
 
 if __name__ == "__main__":
     build_pdf()

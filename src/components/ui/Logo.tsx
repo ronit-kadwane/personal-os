@@ -4,6 +4,12 @@ interface LogoProps extends SVGProps<SVGSVGElement> {
   size?: number | string;
 }
 
+/**
+ * Geometric SVG monogram rendering the brand 'RK' emblem with linear gradient fills.
+ *
+ * @param props - LogoProps configuring dimension and CSS class names
+ * @returns Vector SVG element
+ */
 export function Logo({ size = 32, className = '', ...props }: LogoProps) {
   return (
     <svg
