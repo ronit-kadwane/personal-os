@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     personalInfo.name,
-    'Associate Staff Engineer',
+    'Staff Engineer',
     'Principal Full-Stack Architect',
     'Senior Software Architect',
     'React Native Principal Engineer',

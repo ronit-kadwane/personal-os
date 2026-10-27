@@ -12,6 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.9.1] — 2026-10-27
+
+### Changed
+
+- **Promotion to Staff Engineer**: Updated professional title to **Staff Engineer & Full-Stack Architect** across all modules and metadata following promotion at Nagarro in April 2026.
+- **Career Trajectory & 11+ Years Experience**: Synchronized total industry experience metric to 11+ years across hero metrics, SEO metadata, manifest, and resume documents.
+- **Crisp Executive Bio**: Refined executive bio to sharply highlight distributed systems architecture, React/React-Native leadership, and autonomous AI agent/vibe coding execution.
+- **ATS Resume Regeneration**: Updated professional experience and summary in [scripts/generate_resume.py](scripts/generate_resume.py) and re-compiled [public/resume.pdf](public/resume.pdf).
+- **PWA Manifest Localization**: Extracted manifest name and description strings into standard JSON locale ([src/locales/en.json](src/locales/en.json)) and accessed via `t.manifest`, enforcing zero hardcoded magic strings per project standards.
+
 ## [1.9.0] — 2026-10-27
 
 ### Added

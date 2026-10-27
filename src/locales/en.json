@@ -33,7 +33,7 @@
     "headlineHighlight": "scalable",
     "headlineSuffix": "production systems.",
     "metrics": [
-      { "value": "10+", "label": "Years Experience" },
+      { "value": "11+", "label": "Years Experience" },
       { "value": "15+", "label": "Production Apps" },
       { "value": "100%", "label": "System Reliability" },
       { "value": "4+", "label": "Orgs Architected" }
@@ -114,8 +114,8 @@
     "copyright": "All rights reserved."
   },
   "resume": {
-    "pageTitle": "Resume | Ronit Kadwane — Associate Staff Engineer & Full-Stack Architect",
-    "pageDescription": "ATS-optimized resume of Ronit Kadwane: over 10 years of expertise in software architecture, autonomous AI agent engineering, React, React-Native, Node.js, and scalable production systems.",
+    "pageTitle": "Resume | Ronit Kadwane — Staff Engineer & Full-Stack Architect",
+    "pageDescription": "ATS-optimized resume of Ronit Kadwane: over 11 years of expertise in software architecture, autonomous AI agent engineering, React, React-Native, Node.js, and scalable production systems.",
     "backToPortfolio": "Back to Portfolio",
     "downloadPdf": "Download PDF",
     "executiveSummary": "Executive Summary",
@@ -130,5 +130,9 @@
     "experience": "Experience",
     "productionApps": "Production Apps",
     "reliability": "Reliability Track"
+  },
+  "manifest": {
+    "name": "Ronit Kadwane — Staff Engineer & Full-Stack Architect",
+    "description": "Personal portfolio of Ronit Kadwane: Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems."
   }
 }

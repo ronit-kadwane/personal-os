@@ -26,7 +26,7 @@ def build_page_one_stream():
     
     # Title / Header
     stream1.append("/F2 20 Tf\n40 750 Td\n(RONIT KADWANE) Tj\n")
-    stream1.append("/F1 10 Tf\n0 -16 Td\n(Associate Staff Engineer & Full-Stack Architect | Surat, India \\(Open to Global Remote\\)) Tj\n")
+    stream1.append("/F1 10 Tf\n0 -16 Td\n(Staff Engineer & Full-Stack Architect | Surat, India \\(Open to Global Remote\\)) Tj\n")
     stream1.append("/F1 9 Tf\n0 -14 Td\n(Email: kadwane.ronit@gmail.com   GitHub: github.com/ronit-kadwane   LinkedIn: linkedin.com/in/ronit-kadwane-981017b8) Tj\n")
     stream1.append("ET\n")
     
@@ -36,9 +36,9 @@ def build_page_one_stream():
     stream1.append("BT\n")
     # Professional Summary
     stream1.append("/F2 11 Tf\n40 688 Td\n(PROFESSIONAL SUMMARY) Tj\n")
-    stream1.append("/F1 9 Tf\n0 -14 Td\n(Seasoned software professional with over 10 years of consolidated expertise designing and architecting applications,) Tj\n")
-    stream1.append("0 -12 Td\n(and orchestrating end-to-end production systems. Specialized in mobile and web development across React, React-Native,) Tj\n")
-    stream1.append("0 -12 Td\n(Node.js, and cloud platforms. Active practitioner of autonomous AI agent orchestration and prompt-engineered vibe development.) Tj\n")
+    stream1.append("/F1 9 Tf\n0 -14 Td\n(Staff Engineer & Full-Stack Architect with over 11 years of experience designing high-throughput distributed systems) Tj\n")
+    stream1.append("0 -12 Td\n(and orchestrating resilient end-to-end production architectures across React, React-Native, Node.js, and cloud ecosystems.) Tj\n")
+    stream1.append("0 -12 Td\n(Active pioneer in autonomous AI agent orchestration and prompt-engineered vibe coding, delivering live production software.) Tj\n")
 
     # Technical Skills
     stream1.append("0 -20 Td\n/F2 11 Tf\n(TECHNICAL ARSENAL) Tj\n")
@@ -52,11 +52,11 @@ def build_page_one_stream():
     stream1.append("0 -22 Td\n/F2 11 Tf\n(PROFESSIONAL EXPERIENCE) Tj\n")
     
     # Nagarro
-    stream1.append("0 -16 Td\n/F2 10 Tf\n(Nagarro Software Pvt. Ltd. \\(Surat, India\\) - Associate Staff Engineer) Tj\n")
+    stream1.append("0 -16 Td\n/F2 10 Tf\n(Nagarro Software Pvt. Ltd. \\(Surat, India\\) - Staff Engineer) Tj\n")
     stream1.append("/F1 8.5 Tf\n400 0 Td\n(Sep 2021 - Present) Tj\n-400 0 Td\n")
-    stream1.append("/F1 9 Tf\n0 -13 Td\n(- Transitioned from Senior Engineer to Associate Staff Engineer in Feb 2023, leading financial module architecture.) Tj\n")
+    stream1.append("/F1 9 Tf\n0 -13 Td\n(- Promoted to Staff Engineer in Apr 2026 \\(previously Assoc. Staff Engineer in Feb 2023\\), driving system architecture.) Tj\n")
     stream1.append("0 -12 Td\n(- Architected client profile evaluation engine utilizing React-Native, React, Node.js, and MongoDB for financial insights.) Tj\n")
-    stream1.append("0 -12 Td\n(- Spearheaded technical decision-making, code reviews, and enterprise resilience across cross-functional engineering teams.) Tj\n")
+    stream1.append("0 -12 Td\n(- Spearheaded technical strategy, engineering governance, and resilient architectures across cross-functional teams.) Tj\n")
 
     # Maven Agency
     stream1.append("0 -18 Td\n/F2 10 Tf\n(Maven Agency Pvt. Ltd. \\(Surat, India\\) - FullStack Developer) Tj\n")
