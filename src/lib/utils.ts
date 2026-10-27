@@ -25,3 +25,38 @@ export function formatNumber(n: number): string {
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
   return String(n);
 }
+
+/**
+ * Safely copies plain text to the clipboard with legacy fallback support.
+ *
+ * @param text - Plain text string to copy to the system clipboard
+ * @returns Promise resolving to true if copy succeeded, false otherwise
+ */
+export async function copyTextToClipboard(text: string): Promise<boolean> {
+  if (typeof window === 'undefined') return false;
+
+  try {
+    if (navigator?.clipboard?.writeText && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // Proceed to fallback
+  }
+
+  try {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    return successful;
+  } catch {
+    return false;
+  }
+}

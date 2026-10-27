@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Star, TrendingUp } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/BrandIcons';
-import { Badge } from '@/components/ui/Badge';
+import { Badge, Tooltip } from '@/components/ui';
 import { projects, type Project } from '@/data/portfolio';
 import { t } from '@/locales';
 import { cn, formatNumber } from '@/lib/utils';
@@ -51,10 +51,13 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
           'relative overflow-hidden flex-shrink-0',
           project.size === 'large' ? 'h-48 md:h-64' : 'h-36',
         )}
-        aria-hidden="true"
       >
-        <div className={cn('absolute inset-0 bg-gradient-to-br opacity-90', project.gradient)} />
         <div
+          aria-hidden="true"
+          className={cn('absolute inset-0 bg-gradient-to-br opacity-90', project.gradient)}
+        />
+        <div
+          aria-hidden="true"
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:
@@ -75,26 +78,30 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
         {/* Links */}
         <div className="absolute top-4 right-4 flex gap-2">
           {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${project.title} ${t.projects.githubRepoAria}`}
-              className="p-1.5 rounded-lg bg-black/40 hover:bg-black/60 text-white/90 hover:text-white transition-all cursor-pointer"
-            >
-              <GithubIcon size={14} />
-            </a>
+            <Tooltip content={t.tooltips.viewGithubRepo} position="bottom">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} ${t.projects.githubRepoAria}`}
+                className="p-1.5 rounded-lg bg-black/40 hover:bg-black/60 text-white/90 hover:text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <GithubIcon size={14} />
+              </a>
+            </Tooltip>
           )}
           {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${project.title} ${t.projects.liveDemoAria}`}
-              className="p-1.5 rounded-lg bg-black/40 hover:bg-black/60 text-white/90 hover:text-white transition-all cursor-pointer"
-            >
-              <ExternalLink size={14} />
-            </a>
+            <Tooltip content={t.tooltips.openLiveApp} position="bottom">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} ${t.projects.liveDemoAria}`}
+                className="p-1.5 rounded-lg bg-black/40 hover:bg-black/60 text-white/90 hover:text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <ExternalLink size={14} />
+              </a>
+            </Tooltip>
           )}
         </div>
         {/* GitHub stars */}

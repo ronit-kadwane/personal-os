@@ -7,6 +7,11 @@
     "exploreProjects": "Explore Projects",
     "sendEmail": "Send Direct Email",
     "scroll": "Scroll",
+    "scrollToTop": "Scroll to top",
+    "copyEmail": "Copy email address",
+    "emailCopied": "Email copied to clipboard!",
+    "emailCopyFailed": "Failed to copy email to clipboard",
+    "copied": "Copied!",
     "loading": "Loading...",
     "theme": "Theme",
     "themeToggle": "Toggle theme",
@@ -134,5 +139,19 @@
   "manifest": {
     "name": "Ronit Kadwane — Staff Engineer & Full-Stack Architect",
     "description": "Personal portfolio of Ronit Kadwane: Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems."
+  },
+  "tooltips": {
+    "viewGithubRepo": "View GitHub repository",
+    "openLiveApp": "Open live application",
+    "githubProfile": "Visit GitHub profile",
+    "linkedinProfile": "Connect on LinkedIn",
+    "stackoverflowProfile": "View StackOverflow profile",
+    "downloadResume": "Download ATS resume (PDF)",
+    "expandDetails": "Click to expand details",
+    "collapseDetails": "Click to collapse details",
+    "copyEmailAddress": "Copy email to clipboard",
+    "sendDirectEmail": "Send email via default client",
+    "themeToggle": "Change color theme",
+    "scrollToTop": "Scroll to top"
   }
 }

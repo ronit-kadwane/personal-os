@@ -62,7 +62,7 @@ export function Navbar() {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
             aria-label={t.nav.home}
           >
             <Logo size={32} className="transition-transform duration-200 group-hover:scale-105" />
@@ -78,7 +78,7 @@ export function Navbar() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className="px-3 py-1.5 text-sm text-muted hover:text-foreground rounded-lg hover:bg-surface-elevated transition-all duration-200 font-medium cursor-pointer"
+                  className="px-3 py-1.5 text-sm text-muted hover:text-foreground rounded-lg hover:bg-surface-elevated transition-all duration-200 font-medium cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   {link.label}
                 </button>
@@ -99,7 +99,7 @@ export function Navbar() {
                 handleNavClick('#contact');
               }}
               id="nav-contact-btn"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all duration-200 shadow-md shadow-indigo-600/20"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all duration-200 shadow-md shadow-indigo-600/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               {t.nav.getInTouch}
             </a>
@@ -108,7 +108,7 @@ export function Navbar() {
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden p-2 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200"
+              className="md:hidden p-2 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={mobileOpen}
             >

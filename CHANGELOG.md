@@ -12,6 +12,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.10.1] — 2026-10-27
+
+### Fixed
+
+- **Preserve Native Interactive Roles in Footer**: Removed `role="listitem"` and `role="list"` overrides from interactive anchors and button controls in [src/components/sections/Footer.tsx](src/components/sections/Footer.tsx), preserving native `link` and `button` accessibility semantics for screen readers.
+- **Reduced Motion Support in ScrollToTop**: Configured [src/components/ui/ScrollToTop.tsx](src/components/ui/ScrollToTop.tsx) to inspect `prefers-reduced-motion` and switch scrolling behavior from `smooth` to `instant`, while suppressing scale, translation, and SVG progress-ring transitions via Framer Motion's `useReducedMotion`.
+- **Dynamic `aria-describedby` Association in Tooltip**: Updated [src/components/ui/Tooltip.tsx](src/components/ui/Tooltip.tsx) to clone child triggers and associate `aria-describedby` with the tooltip `id` when visible, combining with existing trigger descriptions and restoring state on dismiss.
+- **Robust Clipboard Copy Fallback & Feedback**: Added `copyTextToClipboard` utility in [src/lib/utils.ts](src/lib/utils.ts) with `document.execCommand` fallback and localized failure toast reporting across Hero, Contact, and Footer components.
+- **Unblock Project Assistive Technology Links**: Removed ancestor `aria-hidden="true"` container from project card headers in [src/features/projects/components/ProjectsSection.tsx](src/features/projects/components/ProjectsSection.tsx), applying `aria-hidden` exclusively to decorative background layers to expose repository and live demo links to screen readers.
+
+## [1.10.0] — 2026-10-27
+
+### Added
+
+- **Accessible Visual Tooltips (`Tooltip.tsx`)**: Created self-contained, accessible micro-interaction tooltips with `role="tooltip"`, Framer Motion spring/fade animations, keyboard focus/hover triggers, and semantic theming tokens across all action buttons and icon triggers.
+- **Site-Wide Toast System (`Toast.tsx`)**: Implemented zero-dependency notification system with custom event dispatching (`toast()`), auto-dismiss timer, and floating `<ToastContainer />` for copy/action feedback.
+- **Circular Progress Scroll-to-Top (`ScrollToTop.tsx`)**: Added floating bottom-right scroll-to-top button featuring a dynamic circular SVG scroll progress ring and smooth viewport scrolling.
+- **Dual Email Actions (Mailto + 1-Click Copy)**: Preserved direct `mailto:` client launch across Hero, Contact, and Footer while adding 1-click clipboard copy buttons with visual checkmarks and toast confirmation.
+- **Enhanced Keyboard Focus Rings**: Standardized visible focus rings (`focus-visible:ring-2 focus-visible:ring-indigo-500`) across navigation links, brand logo, project triggers, theme selectors, and accordion buttons.
+
 ## [1.9.1] — 2026-10-27
 
 ### Changed

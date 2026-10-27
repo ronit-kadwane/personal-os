@@ -62,8 +62,9 @@ function TimelineItem({ item, index, isLast }: TimelineItemProps) {
       <div className="flex-1 pb-10">
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="w-full text-left group cursor-pointer"
+          className="w-full text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl p-1 -m-1"
           aria-expanded={expanded}
+          aria-label={`${item.role} at ${item.company}`}
           id={`experience-${item.id}`}
         >
           <div className="flex items-start justify-between gap-4">
