@@ -5,9 +5,19 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+  Copy,
+  Check,
+} from 'lucide-react';
 import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/BrandIcons';
-import { Badge } from '@/components/ui/Badge';
+import { Badge, Tooltip, toast } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 import { cn } from '@/lib/utils';
@@ -33,6 +43,18 @@ type ContactFormData = z.infer<typeof contactSchema>;
  */
 export function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personalInfo.email);
+      setCopiedEmail(true);
+      toast(t.common.emailCopied);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
 
   const {
     register,
@@ -140,22 +162,39 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Direct Email CTA Card */}
-            <a
-              href={`mailto:${personalInfo.email}`}
-              id="contact-direct-email"
-              className="flex items-center gap-3 w-full px-5 py-4 rounded-2xl border border-indigo-500/30 bg-indigo-500/5 hover:bg-indigo-500/10 hover:border-indigo-500/50 transition-all duration-200 group"
-            >
-              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-md shadow-indigo-600/30 group-hover:bg-indigo-500 transition-colors">
-                <Mail size={18} className="text-white" />
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-foreground">
-                  {t.contact.sendDirectEmail}
+            {/* Direct Email CTA Card (Offers both mailto: and 1-click Copy) */}
+            <div className="flex items-center justify-between gap-3 w-full px-5 py-4 rounded-2xl border border-indigo-500/30 bg-indigo-500/5 hover:border-indigo-500/50 transition-all duration-200">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                id="contact-direct-email"
+                className="flex items-center gap-3 flex-1 min-w-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-md shadow-indigo-600/30 group-hover:bg-indigo-500 transition-colors">
+                  <Mail size={18} className="text-white" />
                 </div>
-                <div className="text-xs text-muted">{personalInfo.email}</div>
-              </div>
-            </a>
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-foreground group-hover:text-indigo-500 transition-colors">
+                    {t.contact.sendDirectEmail}
+                  </div>
+                  <div className="text-xs text-muted truncate">{personalInfo.email}</div>
+                </div>
+              </a>
+
+              <Tooltip content={t.tooltips.copyEmailAddress}>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  aria-label={t.tooltips.copyEmailAddress}
+                  className="flex-shrink-0 p-2.5 rounded-xl text-muted hover:text-foreground bg-surface-elevated/80 hover:bg-surface-elevated border border-border transition-all duration-200 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                >
+                  {copiedEmail ? (
+                    <Check size={16} className="text-emerald-500" />
+                  ) : (
+                    <Copy size={16} />
+                  )}
+                </button>
+              </Tooltip>
+            </div>
 
             {/* Social Links */}
             <div>
@@ -164,24 +203,36 @@ export function ContactSection() {
               </p>
               <div className="flex gap-3">
                 {[
-                  { icon: GithubIcon, href: personalInfo.socials.github, label: 'GitHub' },
-                  { icon: LinkedinIcon, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
+                  {
+                    icon: GithubIcon,
+                    href: personalInfo.socials.github,
+                    label: 'GitHub',
+                    tooltip: t.tooltips.githubProfile,
+                  },
+                  {
+                    icon: LinkedinIcon,
+                    href: personalInfo.socials.linkedin,
+                    label: 'LinkedIn',
+                    tooltip: t.tooltips.linkedinProfile,
+                  },
                   {
                     icon: StackOverflowIcon,
                     href: personalInfo.socials.stackoverflow,
                     label: 'StackOverflow',
+                    tooltip: t.tooltips.stackoverflowProfile,
                   },
-                ].map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center text-muted hover:text-foreground hover:bg-surface-elevated transition-all duration-200 shadow-sm"
-                  >
-                    <Icon size={16} />
-                  </a>
+                ].map(({ icon: Icon, href, label, tooltip }) => (
+                  <Tooltip key={label} content={tooltip}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-10 h-10 rounded-xl border border-border bg-surface flex items-center justify-center text-muted hover:text-foreground hover:bg-surface-elevated transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                    >
+                      <Icon size={16} />
+                    </a>
+                  </Tooltip>
                 ))}
               </div>
             </div>

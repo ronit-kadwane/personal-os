@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useSyncExternalStore } from 'react';
 import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Monitor, Check } from 'lucide-react';
+import { Tooltip } from './Tooltip';
 import { t } from '@/locales';
 import { cn } from '@/lib/utils';
 
@@ -95,20 +96,21 @@ export function ThemeSelector({ className }: ThemeSelectorProps) {
 
   return (
     <div className={cn('relative inline-block', className)} ref={containerRef}>
-      <button
-        id="theme-menu-button"
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={cn(
-          'p-2 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 cursor-pointer flex items-center justify-center',
-          isOpen && 'bg-surface-elevated text-foreground border-accent/40',
-        )}
-        aria-label={t.common.themeToggle}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        title={`${t.common.theme}: ${currentTheme}`}
-      >
-        <ThemeGlyph value={getActiveThemeGlyph(currentTheme, resolvedTheme)} size={16} />
-      </button>
+      <Tooltip content={isOpen ? '' : t.tooltips.themeToggle}>
+        <button
+          id="theme-menu-button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={cn(
+            'p-2 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 cursor-pointer flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500',
+            isOpen && 'bg-surface-elevated text-foreground border-accent/40',
+          )}
+          aria-label={t.common.themeToggle}
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
+        >
+          <ThemeGlyph value={getActiveThemeGlyph(currentTheme, resolvedTheme)} size={16} />
+        </button>
+      </Tooltip>
 
       <AnimatePresence>
         {isOpen && (

@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { ToastContainer, ScrollToTop } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import './globals.css';
 
@@ -150,7 +151,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ToastContainer />
+          <ScrollToTop />
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

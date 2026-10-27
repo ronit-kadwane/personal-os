@@ -12,6 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.10.0] — 2026-10-27
+
+### Added
+
+- **Accessible Visual Tooltips (`Tooltip.tsx`)**: Created self-contained, accessible micro-interaction tooltips with `role="tooltip"`, Framer Motion spring/fade animations, keyboard focus/hover triggers, and semantic theming tokens across all action buttons and icon triggers.
+- **Site-Wide Toast System (`Toast.tsx`)**: Implemented zero-dependency notification system with custom event dispatching (`toast()`), auto-dismiss timer, and floating `<ToastContainer />` for copy/action feedback.
+- **Circular Progress Scroll-to-Top (`ScrollToTop.tsx`)**: Added floating bottom-right scroll-to-top button featuring a dynamic circular SVG scroll progress ring and smooth viewport scrolling.
+- **Dual Email Actions (Mailto + 1-Click Copy)**: Preserved direct `mailto:` client launch across Hero, Contact, and Footer while adding 1-click clipboard copy buttons with visual checkmarks and toast confirmation.
+- **Enhanced Keyboard Focus Rings**: Standardized visible focus rings (`focus-visible:ring-2 focus-visible:ring-indigo-500`) across navigation links, brand logo, project triggers, theme selectors, and accordion buttons.
+
 ## [1.9.1] — 2026-10-27
 
 ### Changed

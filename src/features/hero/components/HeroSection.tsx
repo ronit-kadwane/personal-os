@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, MessageSquare, Sparkles, Download } from 'lucide-react';
+import { ArrowDown, MessageSquare, Sparkles, Download, Mail, Copy, Check } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/BrandIcons';
-import { Button } from '@/components/ui/Button';
+import { Button, Tooltip, toast } from '@/components/ui';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 
@@ -40,6 +40,19 @@ export function HeroSection() {
 
     return () => clearTimeout(timeout);
   }, [displayed, isDeleting, currentRole, roles.length]);
+
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personalInfo.email);
+      setCopiedEmail(true);
+      toast(t.common.emailCopied);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
 
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -130,15 +143,17 @@ export function HeroSection() {
             />
           </Button>
 
-          <a
-            href={personalInfo.resumeUrl}
-            download="Ronit_Kadwane_Resume.pdf"
-            id="hero-download-resume"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-foreground bg-surface-elevated hover:bg-surface-hover border border-border rounded-xl transition-all duration-200 shadow-sm"
-          >
-            <Download size={16} className="text-indigo-500" />
-            {t.common.downloadResumePdf}
-          </a>
+          <Tooltip content={t.tooltips.downloadResume}>
+            <a
+              href={personalInfo.resumeUrl}
+              download="Ronit_Kadwane_Resume.pdf"
+              id="hero-download-resume"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-foreground bg-surface-elevated hover:bg-surface-hover border border-border rounded-xl transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              <Download size={16} className="text-indigo-500" />
+              {t.common.downloadResumePdf}
+            </a>
+          </Tooltip>
 
           <Button
             id="hero-contact-cta"
@@ -152,28 +167,62 @@ export function HeroSection() {
           </Button>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 mb-16">
+        {/* Social & Contact Links */}
+        <div className="flex items-center justify-center gap-3 sm:gap-4 mb-16">
           {[
-            { icon: GithubIcon, href: personalInfo.socials.github, label: 'GitHub' },
-            { icon: LinkedinIcon, href: personalInfo.socials.linkedin, label: 'LinkedIn' },
+            {
+              icon: GithubIcon,
+              href: personalInfo.socials.github,
+              label: 'GitHub',
+              tooltip: t.tooltips.githubProfile,
+            },
+            {
+              icon: LinkedinIcon,
+              href: personalInfo.socials.linkedin,
+              label: 'LinkedIn',
+              tooltip: t.tooltips.linkedinProfile,
+            },
             {
               icon: StackOverflowIcon,
               href: personalInfo.socials.stackoverflow,
               label: 'StackOverflow',
+              tooltip: t.tooltips.stackoverflowProfile,
             },
-          ].map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="p-2.5 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 shadow-sm"
-            >
-              <Icon size={18} />
-            </a>
+          ].map(({ icon: Icon, href, label, tooltip }) => (
+            <Tooltip key={label} content={tooltip}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="p-2.5 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              >
+                <Icon size={18} />
+              </a>
+            </Tooltip>
           ))}
+
+          {/* Direct Email (mailto:) */}
+          <Tooltip content={t.tooltips.sendDirectEmail}>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              aria-label={t.tooltips.sendDirectEmail}
+              className="p-2.5 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              <Mail size={18} />
+            </a>
+          </Tooltip>
+
+          {/* 1-Click Copy Email */}
+          <Tooltip content={t.tooltips.copyEmailAddress}>
+            <button
+              onClick={handleCopyEmail}
+              aria-label={t.tooltips.copyEmailAddress}
+              className="p-2.5 rounded-xl text-muted hover:text-foreground hover:bg-surface-elevated border border-border transition-all duration-200 shadow-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              {copiedEmail ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} />}
+            </button>
+          </Tooltip>
         </div>
 
         {/* Metrics row */}
