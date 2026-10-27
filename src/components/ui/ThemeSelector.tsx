@@ -13,6 +13,12 @@ interface ThemeSelectorProps {
 
 const emptySubscribe = () => () => {};
 
+/**
+ * Render corresponding Lucide icon for active theme option.
+ *
+ * @param props - Glyph properties containing theme identifier and icon size
+ * @returns Stylized Lucide glyph
+ */
 function ThemeGlyph({ value, size = 14 }: { value: string; size?: number }) {
   if (value === 'light') {
     return <Sun size={size} className="text-amber-500" />;
@@ -23,6 +29,13 @@ function ThemeGlyph({ value, size = 14 }: { value: string; size?: number }) {
   return <Monitor size={size} className="text-cyan-400" />;
 }
 
+/**
+ * Resolve effective theme glyph accounting for system preference.
+ *
+ * @param currentTheme - Configured theme value ('system' | 'light' | 'dark')
+ * @param resolvedTheme - Actual evaluated OS theme preference
+ * @returns Resolved visual theme key
+ */
 function getActiveThemeGlyph(currentTheme: string, resolvedTheme?: string) {
   if (currentTheme === 'system') {
     return resolvedTheme === 'dark' ? 'dark' : 'light';
@@ -30,6 +43,12 @@ function getActiveThemeGlyph(currentTheme: string, resolvedTheme?: string) {
   return currentTheme;
 }
 
+/**
+ * Desktop dropdown theme selector offering System, Light, and Dark modes.
+ *
+ * @param props - Component props containing optional className
+ * @returns Dropdown theme selector element
+ */
 export function ThemeSelector({ className }: ThemeSelectorProps) {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(
@@ -136,7 +155,9 @@ export function ThemeSelector({ className }: ThemeSelectorProps) {
 }
 
 /**
- * Mobile 3-way segmented control for the drawer
+ * Mobile 3-way segmented control for navigation drawer.
+ *
+ * @returns Segmented theme switcher element
  */
 export function MobileThemeSelector() {
   const { theme, setTheme } = useTheme();

@@ -7,6 +7,12 @@ import {
   ContactSection,
 } from '@/features';
 
+/**
+ * Root portfolio home page composing layout chrome and domain feature sections:
+ * Hero, Projects Bento, Experience Timeline, Skills, and Contact Form.
+ *
+ * @returns Master home page element
+ */
 export default function HomePage() {
   return (
     <>

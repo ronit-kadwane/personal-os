@@ -1,5 +1,10 @@
 import type { MetadataRoute } from 'next';
 
+/**
+ * Generates Progressive Web App manifest with icons, themes, and launch behavior.
+ *
+ * @returns Next.js Manifest metadata configuration
+ */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Ronit Kadwane — Associate Staff Engineer & Full-Stack Architect',

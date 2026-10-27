@@ -3,6 +3,11 @@ import { GithubIcon, LinkedinIcon, StackOverflowIcon } from '@/components/ui/Bra
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 
+/**
+ * Site-wide footer displaying identity monogram, copyright metadata, and verified social profiles.
+ *
+ * @returns Footer component
+ */
 export function Footer() {
   const year = new Date().getFullYear();
 

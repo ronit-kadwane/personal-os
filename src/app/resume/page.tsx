@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   description: t.resume.pageDescription,
 };
 
+/**
+ * Interactive and printable ATS-formatted resume page.
+ * Provides on-screen reading, theme toggling, live project links, and @media print styling.
+ *
+ * @returns Printable resume view element
+ */
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-background text-foreground py-12 px-6 sm:px-10 transition-colors duration-200 print:bg-white print:text-black print:p-0">

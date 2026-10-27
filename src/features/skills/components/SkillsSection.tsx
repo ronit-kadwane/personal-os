@@ -8,12 +8,24 @@ import { cn } from '@/lib/utils';
 
 type SkillLevel = 'expert' | 'advanced' | 'proficient';
 
+/**
+ * Map categorical skill proficiency tier to percentage score for ARIA attributes.
+ *
+ * @param level - Proficiency tier ('expert' | 'advanced' | 'proficient')
+ * @returns Numeric percentage value (60-100)
+ */
 function getProficiencyValue(level: SkillLevel): number {
   if (level === 'expert') return 100;
   if (level === 'advanced') return 80;
   return 60;
 }
 
+/**
+ * Map categorical skill proficiency tier to CSS width percentage.
+ *
+ * @param level - Proficiency tier ('expert' | 'advanced' | 'proficient')
+ * @returns CSS width percentage string
+ */
 function getProficiencyWidth(level: SkillLevel): string {
   if (level === 'expert') return '100%';
   if (level === 'advanced') return '80%';
@@ -38,6 +50,11 @@ const levelConfig: Record<SkillLevel, { label: string; color: string; textColor:
   },
 };
 
+/**
+ * Technical Arsenal section presenting categorical competencies with proficiency meters.
+ *
+ * @returns Skills section component
+ */
 export function SkillsSection() {
   return (
     <section

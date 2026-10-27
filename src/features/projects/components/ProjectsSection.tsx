@@ -8,6 +8,12 @@ import { projects, type Project } from '@/data/portfolio';
 import { t } from '@/locales';
 import { cn, formatNumber } from '@/lib/utils';
 
+/**
+ * Framer motion viewport entry transition configuration with optional stagger delay.
+ *
+ * @param delay - Stagger offset in seconds
+ * @returns Motion animation configuration object
+ */
 function useInViewAnimation(delay = 0) {
   return {
     initial: { opacity: 0, y: 32 },
@@ -22,6 +28,12 @@ interface ProjectCardProps {
   delay?: number;
 }
 
+/**
+ * Bento grid card showcasing project metadata, live links, and metrics.
+ *
+ * @param props - ProjectCardProps containing project data and animation delay
+ * @returns Styled project card element
+ */
 function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
   return (
     <motion.article
@@ -137,6 +149,11 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
   );
 }
 
+/**
+ * Projects section rendering responsive Bento grid of featured production systems.
+ *
+ * @returns Projects showcase section
+ */
 export function ProjectsSection() {
   return (
     <section

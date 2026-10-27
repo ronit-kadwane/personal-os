@@ -8,6 +8,12 @@ interface BadgeProps {
   className?: string;
 }
 
+/**
+ * Atomic status indicator and technology tag pill component.
+ *
+ * @param props - Component props controlling appearance, size, and label content
+ * @returns Stylized badge element
+ */
 export function Badge({ children, variant = 'default', size = 'md', className }: BadgeProps) {
   const base =
     'inline-flex items-center gap-1 font-mono font-medium rounded-full border leading-none whitespace-nowrap';

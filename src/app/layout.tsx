@@ -129,6 +129,13 @@ const personJsonLd = {
 /* ====================================================
    Root Layout
    ==================================================== */
+/**
+ * Root application layout establishing font variables, JSON-LD structured data,
+ * theme management provider, and observability telemetry beacons.
+ *
+ * @param props - Component props containing child route nodes
+ * @returns Master HTML document tree
+ */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html

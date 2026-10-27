@@ -9,6 +9,12 @@ const contactSchema = z.object({
   message: z.string().min(20).max(2000).trim(),
 });
 
+/**
+ * Handles incoming contact form inquiries with Zod validation.
+ *
+ * @param request - NextRequest holding the contact form submission payload
+ * @returns NextResponse with status confirmation or field validation errors
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();

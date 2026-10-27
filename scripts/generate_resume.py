@@ -6,9 +6,19 @@ Does not require third-party libraries.
 import sys
 
 def escape_pdf(text):
+    """
+    Escape special characters for raw PDF literal text string syntax.
+
+    :param text: Raw input string
+    :return: Escaped string safe for PDF text stream insertion
+    """
     return text.replace('\\', '\\\\').replace('(', '\\(').replace(')', '\\)')
 
 def build_pdf():
+    """
+    Build and write the 2-page ATS-compliant PDF resume (public/resume.pdf).
+    Assembles standard PDF 1.4 objects, fonts, text streams, and xref table.
+    """
     # Page setup: Standard US Letter (612 x 792 pt)
     # Margins: 40pt left/right, 40pt top/bottom
     

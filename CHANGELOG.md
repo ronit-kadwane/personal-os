@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.8.1] — 2026-10-26
+
+### Added
+
+- **Comprehensive Docstring Coverage Standard**: Added rule section 6 to [.agents/rules/project-standards.md](.agents/rules/project-standards.md) mandating >= 80% docstring coverage for all exported functions, components, API route handlers, and utility scripts.
+- **Project-Wide JSDoc & Python Docstrings**: Documented all functions and components across the codebase including `scripts/generate_resume.py`, `scripts/generate_favicon.py`, `src/app/` routes, `src/components/`, and `src/features/` modules, resolving automated code review warnings and achieving 100% docstring coverage on PR diffs.
+
 ## [1.8.0] — 2026-10-26
 
 ### Added

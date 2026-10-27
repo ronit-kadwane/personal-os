@@ -8,6 +8,12 @@ import { Button } from '@/components/ui/Button';
 import { personalInfo } from '@/data/portfolio';
 import { t } from '@/locales';
 
+/**
+ * Hero showcase section with animated role typewriter, availability badge,
+ * ambient background glows, production metrics, and call-to-action triggers.
+ *
+ * @returns Hero section element
+ */
 export function HeroSection() {
   const roles = personalInfo.roles;
   const [roleIndex, setRoleIndex] = useState(0);

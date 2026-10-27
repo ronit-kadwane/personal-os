@@ -25,6 +25,12 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+/**
+ * Interactive contact & inquiry section with React Hook Form validation,
+ * budget/project scope selector chips, and telemetry dispatch.
+ *
+ * @returns Contact section component
+ */
 export function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 

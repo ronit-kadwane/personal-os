@@ -8,6 +8,12 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
+/**
+ * Atomic card container primitive providing background elevation, glassmorphism, and hover animations.
+ *
+ * @param props - CardProps extending native HTML div attributes
+ * @returns Styled card container element
+ */
 export function Card({
   children,
   variant = 'default',

@@ -49,3 +49,9 @@ trigger: always_on
 - **Zero Lingering Ports**: Never leave background dev servers or port 3000 listeners running upon turn completion.
 - **Mandatory Cleanup**: Terminate all test servers (`manage_task kill`) and verify port 3000 is clean (`lsof -i :3000`) before returning.
 - **Terminal Priority**: Developer terminal retains exclusive rights to `npm run dev` / `npm start`.
+
+## 6. Comprehensive Docstring & JSDoc Coverage (Strict)
+
+- **Mandatory Documentation**: Every exported function, React component, Next.js page/route handler, hook, utility function, and automation script **MUST** have a concise JSDoc (`/** ... */`) or Python docstring (`"""..."""`).
+- **Coverage Threshold**: Maintain >= 80% docstring coverage across all project modules.
+- **Structure**: Briefly document the component/function's responsibility, significant parameters (`@param`), and return value (`@returns`). Keep comments accurate, concise, and professional.
