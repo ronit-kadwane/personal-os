@@ -130,5 +130,9 @@
     "experience": "Experience",
     "productionApps": "Production Apps",
     "reliability": "Reliability Track"
+  },
+  "manifest": {
+    "name": "Ronit Kadwane — Staff Engineer & Full-Stack Architect",
+    "description": "Personal portfolio of Ronit Kadwane: Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems."
   }
 }

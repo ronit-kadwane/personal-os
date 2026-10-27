@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { t } from '@/locales';
 
 /**
  * Generates Progressive Web App manifest with icons, themes, and launch behavior.
@@ -7,10 +8,9 @@ import type { MetadataRoute } from 'next';
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Ronit Kadwane — Staff Engineer & Full-Stack Architect',
+    name: t.manifest.name,
     short_name: 'Ronit Kadwane',
-    description:
-      'Personal portfolio of Ronit Kadwane: Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems.',
+    description: t.manifest.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#09090B',

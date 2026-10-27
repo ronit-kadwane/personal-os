@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Career Trajectory & 11+ Years Experience**: Synchronized total industry experience metric to 11+ years across hero metrics, SEO metadata, manifest, and resume documents.
 - **Crisp Executive Bio**: Refined executive bio to sharply highlight distributed systems architecture, React/React-Native leadership, and autonomous AI agent/vibe coding execution.
 - **ATS Resume Regeneration**: Updated professional experience and summary in [scripts/generate_resume.py](scripts/generate_resume.py) and re-compiled [public/resume.pdf](public/resume.pdf).
+- **PWA Manifest Localization**: Extracted manifest name and description strings into standard JSON locale ([src/locales/en.json](src/locales/en.json)) and accessed via `t.manifest`, enforcing zero hardcoded magic strings per project standards.
 
 ## [1.9.0] — 2026-10-27
 
