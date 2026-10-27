@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 const contactSchema = z.object({
   name: z.string().min(2).max(80).trim(),
-  email: z.string().email().trim().toLowerCase(),
+  email: z.email().trim().toLowerCase(),
   budget: z.string().min(1).max(50),
   projectType: z.string().min(1).max(80),
   message: z.string().min(20).max(2000).trim(),
@@ -48,6 +48,11 @@ export async function POST(request: NextRequest) {
   }
 }
 
+/**
+ * Rejects GET requests to the contact endpoint.
+ *
+ * @returns NextResponse with a 405 Method Not Allowed error
+ */
 export async function GET() {
   return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 }

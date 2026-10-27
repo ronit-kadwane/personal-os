@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 /**
  * Interactive and printable ATS-formatted resume page.
- * Provides on-screen reading, theme toggling, live project links, and @media print styling.
+ * Provides on-screen reading, direct PDF download, live project links, and @media print styling.
  *
  * @returns Printable resume view element
  */

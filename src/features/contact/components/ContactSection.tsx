@@ -27,7 +27,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 /**
  * Interactive contact & inquiry section with React Hook Form validation,
- * budget/project scope selector chips, and telemetry dispatch.
+ * budget/project scope selector chips, and contact form submission.
  *
  * @returns Contact section component
  */
