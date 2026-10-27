@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Calendly/Cal.com embed modal
 - Blog post dynamic routes with MDX
 
+## [1.11.0] — 2026-10-27
+
+### Added
+
+- **Telegram Bot Push Notification Dispatch**: Implemented automated delivery of contact form inquiries directly to Telegram using the Telegram Bot API (`https://api.telegram.org/bot<token>/sendMessage`) in [src/app/api/contact/route.ts](src/app/api/contact/route.ts). Includes HTML escaping to prevent injection errors, instant push alerting with name, email, budget, and message details, and graceful fallback logging when running with placeholder or unconfigured credentials.
+- **Telegram Environment Variables**: Added `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` placeholders to [.env.example](.env.example) and local environment templates.
+
 ## [1.10.1] — 2026-10-27
 
 ### Fixed
