@@ -16,7 +16,7 @@
 
 ## ⚡ Overview
 
-**Personal OS** is an interactive, high-performance portfolio engineered for **Ronit Kadwane** (Associate Staff Engineer & Principal Full-Stack Architect). Designed to showcase production-scale engineering capabilities to global tech leaders, US/European clients, and tier-one recruiters.
+**Personal OS** is an interactive, high-performance portfolio engineered for **Ronit Kadwane** (Staff Engineer & Full-Stack Architect). Designed to showcase production-scale engineering capabilities to global tech leaders, US/European clients, and tier-one recruiters.
 
 ### Key Capabilities
 

@@ -67,7 +67,7 @@ export function Navbar() {
           >
             <Logo size={32} className="transition-transform duration-200 group-hover:scale-105" />
             <span className="font-bold text-sm text-foreground hidden sm:block">
-              {personalInfo.name.split(' ')[0]}
+              {personalInfo.name}
               <span className="text-indigo-500">.</span>
             </span>
           </a>

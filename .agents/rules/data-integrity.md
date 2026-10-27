@@ -18,7 +18,7 @@
 ## Profile Reference
 
 - **Owner**: Ronit Kadwane
-- **Current Role**: Associate Staff Engineer & Principal Full-Stack Architect at Nagarro Software Pvt. Ltd (Surat)
-- **Target Audience**: High-scale enterprise tech leaders, US & European startups and recruiters seeking senior engineering architecture.
-- **Experience**: 10+ years across JavaScript, React, React-Native, Node.js, Android, MongoDB
+- **Current Role**: Staff Engineer & Full-Stack Architect at Nagarro Software Pvt. Ltd (Surat)
+- **Target Audience**: High-scale enterprise tech leaders, US & European startups and recruiters seeking staff engineering / architecture leadership.
+- **Experience**: 11+ years across JavaScript, React, React-Native, Node.js, Android, MongoDB, AI Agent Orchestration
 - **Education**: B.E. Computer Engineering from Sarvajanik College of Engineering & Technology

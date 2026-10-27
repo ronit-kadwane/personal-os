@@ -7,10 +7,10 @@ import type { MetadataRoute } from 'next';
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Ronit Kadwane — Associate Staff Engineer & Full-Stack Architect',
+    name: 'Ronit Kadwane — Staff Engineer & Full-Stack Architect',
     short_name: 'Ronit Kadwane',
     description:
-      'Personal portfolio of Ronit Kadwane: Associate Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems.',
+      'Personal portfolio of Ronit Kadwane: Staff Engineer & Full-Stack Architect specialized in React, React-Native, Node.js, and enterprise systems.',
     start_url: '/',
     display: 'standalone',
     background_color: '#09090B',
